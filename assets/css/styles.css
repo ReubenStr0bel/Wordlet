@@ -19,5 +19,5 @@ body {
     width: 80px;
     padding: 28px 0; /* top and bottom padding to vertically centre the emoji within the box and ensure the height is equal to the width */
     text-align: center;
-    margin: 20px;
+    margin: 8px;
 }
