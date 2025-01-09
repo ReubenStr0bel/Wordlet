@@ -16,11 +16,8 @@ body {
     justify-content: center;
 }
 
-.emoji-flex-container {
-    display: flex;
-    margin: auto;
-    width: 85%;
-    justify-content: center;
+.flex-container .emoji{
+    width: 85%; /* overriding width from .flex-container as there are more buttons to display in this section */
 }
 
 .box {
