@@ -1,24 +1,44 @@
-document.addEventListener('DOMContentLoaded', function() {
     // Emojis taken from emojipedia
     const animalEmoji = ['🐯','🐳','🐻','🦙','🦭','🦘','🦑','🐼','🐙','🐨','🦊','🦝','🐓','🦚','🦩','🐬','🐝','🦈','🪼','🐧','🦆','🐡','🦉','🦔']
     const foodEmoji = ['🥑','🍫','🍒','🍉','🥦','🍆','🍊','🍬','🫐','🥕','🍋','🫑','🍌','🍍','🥬','🍎','🍇','🍑','🥪','🌶️','🍕','🧀','🍔','🍩']
     const faceEmoji = ['😀','🤩','😜','😁','🤑','😂','🥰','🤔','🤤','🥳','😶‍🌫️','😴','🥶','😰','🥹','😡','😑','👿','🤗','😚','😎','🙃','🤒','😫']
     let chosenEmoji
+    emojiIndex = 0
+    
+    // variables to track which box is the next to have an emoji entered
+    let gameRow = 1;
+    let gameCol = 1;
 
+    function newGame() {
+        // generating a random answer from the chosen emoji category
+        let answer = [];
+        while (answer.length < 5) {
+            randomIndex = Math.floor(Math.random() * chosenEmoji.length)
+            answer.push(chosenEmoji[randomIndex]);
+        }
+        return answer
 
+        // Save answer somewhere, clear the previous answer
+    }
 
     chosenEmoji = animalEmoji // temporary for testing, will come from modal selection in future
-    emojiIndex = 0
-    function assignEmojiButtons() { // Assigns the emojis to their respective buttons based on which category was selected
+    function assignEmojiButtons() { 
+        // Assigns the emojis to their respective buttons based on which category was selected
         for (let row = 1; row <= $("#emoji-buttons").children().length;  row++) {
             for (let col = 1; col !== $(`#emoji-row-${row}`).children().length; col++) {
-                $(`#emoji-row-${row} > .box-${col}`).text(chosenEmoji[emojiIndex]);
+                box = $(`#emoji-row-${row} > .box-${col}`)
+                box.text(chosenEmoji[emojiIndex]);
                 emojiIndex++;
+                box.on("click", function () {
+                    console.log("Button clicked");
+                })
             }
         }
     }
 
     assignEmojiButtons()
+
+    newGame()
 
     // Create the game grid
     for (let row = 1; row <= 6; row++) {
@@ -29,5 +49,3 @@ document.addEventListener('DOMContentLoaded', function() {
             $("#game-grid").append(box);
         }
     }
-
-})
