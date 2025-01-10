@@ -4,19 +4,15 @@ faceEmoji = ['','','','','','','','','','','','','','','','','','','','','','','
 
 // console.log($("#emoji-buttons").children());
 
-rowCounter = 1;
-colCounter = 1;
 emojiIndex = 0
-
 function assignEmojiButtons() {
-    for (let row = 1; row > 3;  row++) {
-        for (let col = 1; col === $(".emoji .flex-container").children().length;  col++) {
-            console.log(`#emoji-row-${rowCounter} > .box-${colCounter}`)
-            $(`#emoji-row-${rowCounter} > .box-${colCounter}`).innerText = animalEmoji[emojiIndex];
+    for (let row = 1; row < 4;  row++) {
+        for (let col = 1; col !== $(`#emoji-row-${row}`).children().length; col++) {
+            console.log($(`#emoji-row-${row} > .box-${col}`));
+            $(`#emoji-row-${row} > .box-${col}`).text(animalEmoji[emojiIndex]);
             emojiIndex++;
-            colCounter++;
         }
-        rowCounter++;
-        colCounter = 1;
     }
 }
+
+assignEmojiButtons()
