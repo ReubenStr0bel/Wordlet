@@ -30,7 +30,6 @@
                 box.text(chosenEmoji[emojiIndex]);
                 emojiIndex++;
                 box.on("click", function () {
-                    // console.log("Button clicked");
                     $(`#${gameRow}-${gameCol}`).text($(this).text());
                     if (gameCol <= 5) { // Incrementing gameCol to 6 will mean that button presses
                         gameCol++       // won't change the final box once the row is full
@@ -55,3 +54,10 @@
     }
 
     // Assign event listeners to backspace and submit buttons
+    $("#backspace").on("click", function () {
+        
+    });
+    $("#submit").on("click", function () {
+
+    });
+    
