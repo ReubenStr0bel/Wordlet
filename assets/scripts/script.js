@@ -16,9 +16,8 @@
             randomIndex = Math.floor(Math.random() * chosenEmoji.length)
             answer.push(chosenEmoji[randomIndex]);
         }
-        return answer
 
-        // Save answer somewhere, clear the previous answer
+        ${"#answer"}.text(answer)
     }
 
     chosenEmoji = animalEmoji // temporary for testing, will come from modal selection in future
@@ -36,6 +35,12 @@
                     }
                 })
             }
+        }
+    }
+
+    function handleSubmit() {
+        if (gameCol === 6) {
+
         }
     }
 
@@ -60,7 +65,4 @@
             $(`#${gameRow}-${gameCol}`).text("");
         }
     });
-    $("#submit").on("click", function () {
-
-    });
-    
+    $("#submit").on("click", handleSubmit);    
