@@ -17,7 +17,7 @@
             answer.push(chosenEmoji[randomIndex]);
         }
 
-        ${"#answer"}.text(answer)
+        $("#answer").text(answer)
     }
 
     chosenEmoji = animalEmoji // temporary for testing, will come from modal selection in future
@@ -42,7 +42,7 @@
         if (gameCol === 6) {
             for (let i = 1; i <= 5; i++) {
                 guess = $(`#${gameRow}-${i}`);
-                answer = ${"#answer"}.text()
+                answer = $("#answer").text()
                 if (guess === answer[i]) {
                     guess.classList.add("correct-guess");
                 } else if (guess !== answer[i] && answer.includes(guess)) {
