@@ -14,7 +14,7 @@
         let emojiArray = [];
         while (emojiArray.length < 5) {
             randomIndex = Math.floor(Math.random() * chosenEmoji.length)
-            if (!answer.includes(chosenEmoji[randomIndex])) {
+            if (!emojiArray.includes(chosenEmoji[randomIndex])) {
                 emojiArray.push(chosenEmoji[randomIndex]);
             }    
         }
@@ -22,8 +22,8 @@
         // Saving the answer to the #answer div
         for (let i = 0; i < emojiArray.length; i++) {
             let newSpan = document.createElement("span");
-            span.text(emojiArray[i]);
-            ${"#answer"}.append(span);
+            newSpan.innerText = emojiArray[i];
+            $("#answer").append(newSpan);
         };
 
         gameRow = 1
