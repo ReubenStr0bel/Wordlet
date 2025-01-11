@@ -11,15 +11,20 @@
 
     function newGame() {
         // generating a random answer from the chosen emoji category
-        let answer = [];
-        while (answer.length < 5) {
+        let emojiArray = [];
+        while (emojiArray.length < 5) {
             randomIndex = Math.floor(Math.random() * chosenEmoji.length)
             if (!answer.includes(chosenEmoji[randomIndex])) {
-                answer.push(chosenEmoji[randomIndex]);
+                emojiArray.push(chosenEmoji[randomIndex]);
             }    
         }
-
-        $("#answer").text(answer)
+        
+        // Saving the answer to the #answer div
+        for (let i = 0; i < emojiArray.length; i++) {
+            let newSpan = document.createElement("span");
+            span.text(emojiArray[i]);
+            ${"#answer"}.append(span);
+        };
 
         gameRow = 1
         gameCol = 1
