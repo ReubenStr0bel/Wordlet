@@ -2,8 +2,12 @@
     const animalEmoji = ['🐯','🐳','🐻','🦙','🦭','🦘','🦑','🐼','🐙','🐨','🦊','🦝','🐓','🦚','🦩','🐬','🐝','🦈','🪼','🐧','🦆','🐡','🦉','🦔']
     const foodEmoji = ['🥑','🍫','🍒','🍉','🥦','🍆','🍊','🍬','🫐','🥕','🍋','🫑','🍌','🍍','🥬','🍎','🍇','🍑','🥪','🌶️','🍕','🧀','🍔','🍩']
     const faceEmoji = ['😀','🤩','😜','😁','🤑','😂','🥰','🤔','🤤','🥳','😶‍🌫️','😴','🥶','😰','🥹','😡','😑','👿','🤗','😚','😎','🙃','🤒','😫']
-    let chosenEmoji
-    emojiIndex = 0
+    let chosenEmoji;
+    let emojiIndex = 0;
+    let word = "";
+
+    // Retrieving the element where the answer is stored
+    const answer = document.getElementById("answer");
     
     // variables to track which box is the next to have an emoji entered
     let gameRow = 1;
@@ -18,6 +22,9 @@
                 emojiArray.push(chosenEmoji[randomIndex]);
             }    
         }
+
+        // Saving the answer in string format
+        word = emojiArray.join("");
         
         // Saving the answer to the #answer div
         for (let i = 0; i < emojiArray.length; i++) {
@@ -50,15 +57,14 @@
 
     function handleSubmit() {
         if (gameCol === 6) {
-            answer = $("#answer").text().replace(/,/g, '');
             for (let i = 1; i <= 5; i++) {
-                box = $(`#${gameRow}-${i}`)
-                guess = $(`#${gameRow}-${i}`).text();
-                console.log(guess)
-                console.log(answer[i])
-                if (guess === answer[i]) {
+                let box = $(`#${gameRow}-${i}`)
+                let guess = $(`#${gameRow}-${i}`).text();
+                let answerEmoji = answer.children[i-1].innerText;
+
+                if (guess === answerEmoji) {
                     box.addClass("correct-guess");
-                } else if (guess !== answer[i] && answer.includes(guess)) {
+                } else if (guess !== answerEmoji && word.includes(guess)) {
                     box.addClass("wrong-square-guess");
                 } else {
                     box.addClass("incorrect-guess");
@@ -69,9 +75,9 @@
         }
     }
 
-    assignEmojiButtons()
+    assignEmojiButtons();
 
-    newGame()
+    newGame();
 
     // Create the game grid
     for (let row = 1; row <= 6; row++) {
