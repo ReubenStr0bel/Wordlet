@@ -14,7 +14,9 @@
         let answer = [];
         while (answer.length < 5) {
             randomIndex = Math.floor(Math.random() * chosenEmoji.length)
-            answer.push(chosenEmoji[randomIndex]);
+            if (!answer.includes(chosenEmoji[randomIndex])) {
+                answer.push(chosenEmoji[randomIndex]);
+            }    
         }
 
         $("#answer").text(answer)
@@ -43,15 +45,18 @@
 
     function handleSubmit() {
         if (gameCol === 6) {
+            answer = $("#answer").text().replace(/,/g, '');
             for (let i = 1; i <= 5; i++) {
-                guess = $(`#${gameRow}-${i}`);
-                answer = $("#answer").text()
+                box = $(`#${gameRow}-${i}`)
+                guess = $(`#${gameRow}-${i}`).text();
+                console.log(guess)
+                console.log(answer[i])
                 if (guess === answer[i]) {
-                    guess.addClass("correct-guess");
+                    box.addClass("correct-guess");
                 } else if (guess !== answer[i] && answer.includes(guess)) {
-                    guess.addClass("wrong-square-guess");
+                    box.addClass("wrong-square-guess");
                 } else {
-                    guess.addClass("incorrect-guess");
+                    box.addClass("incorrect-guess");
                 }
             }
             gameRow++;
