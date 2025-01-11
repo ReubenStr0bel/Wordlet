@@ -55,7 +55,7 @@
                 }
             }
             gameRow++;
-            gameCol = 0;
+            gameCol = 1;
         }
     }
 
