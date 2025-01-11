@@ -5,6 +5,8 @@
     let chosenEmoji;
     let emojiIndex = 0;
     let word = "";
+    let emojiButtonsClicked = []
+    let keyboardUpdateClass = '' // Does this need to be global!? Why won't it work inside the function when outside of the if
 
     // Retrieving the element where the answer is stored
     const answer = document.getElementById("answer");
@@ -33,7 +35,7 @@
             $("#answer").append(newSpan);
         };
 
-        gameRow = 1
+        gameRow = 1 // Reset these values to 1 in case the user starts a game after having played
         gameCol = 1
     }
 
@@ -49,6 +51,7 @@
                     $(`#${gameRow}-${gameCol}`).text($(this).text());
                     if (gameCol <= 5) { // Incrementing gameCol to 6 will mean that button presses
                         gameCol++       // won't change the final box once the row is full
+                        emojiButtonsClicked.push($(this));
                     }
                 })
             }
@@ -63,22 +66,36 @@
                 let box = $(`#${gameRow}-${i}`)
                 let guess = $(`#${gameRow}-${i}`).text();
                 let answerEmoji = answer.children[i-1].innerText;
-
+                
                 if (guess === answerEmoji) {
                     box.addClass("correct-guess");
+                    keyboardUpdateClass = "correct-guess";
                 } else if (guesses.includes(guess)) { // Prevents duplicate guesses becoming yellow
                     box.addClass("incorrect-guess");
+                    keyboardUpdateClass = "incorrect-guess";
                 } else if (guess !== answerEmoji && word.includes(guess)) {
                     box.addClass("wrong-square-guess");
+                    keyboardUpdateClass = "wrong-square-guess";
                 } else {
                     box.addClass("incorrect-guess");
+                    keyboardUpdateClass = "incorrect-guess";
                 }
                 guesses.push(guess);
-                console.log(guesses);
-                console.log(guesses.includes(guess));
+                updateKeyboard(guess, keyboardUpdateClass);
             }
             gameRow++;
             gameCol = 1;
+        }
+    }
+
+    function updateKeyboard(guess, keyboardUpdateClass) {
+        for (let row = 1; row <= $("#emoji-buttons").children().length;  row++) {
+            for (let col = 1; col !== $(`#emoji-row-${row}`).children().length; col++) {
+                let emoji = $(`#emoji-row-${row} .box-${col}`);
+                if (guess === emoji.text()) {
+                    emoji.addClass(keyboardUpdateClass);
+                }
+            }
         }
     }
 
