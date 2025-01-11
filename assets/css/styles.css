@@ -38,11 +38,11 @@ body {
 
 /* Classes to show which guesses are correct */
 .correct-guess {
-    background-color: green;
+    background-color: #6ca965;
 }
 
 .wrong-square-guess {
-    background-color: yellow;
+    background-color: #c8b653;
 }
 
 .incorrect-guess {

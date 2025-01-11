@@ -56,7 +56,9 @@
     }
 
     function handleSubmit() {
+        // Add in way to test if the game was won or lost
         if (gameCol === 6) {
+            let guesses = [];
             for (let i = 1; i <= 5; i++) {
                 let box = $(`#${gameRow}-${i}`)
                 let guess = $(`#${gameRow}-${i}`).text();
@@ -64,11 +66,16 @@
 
                 if (guess === answerEmoji) {
                     box.addClass("correct-guess");
+                } else if (guesses.includes(guess)) {
+                    box.addClass("incorrect-guess");
                 } else if (guess !== answerEmoji && word.includes(guess)) {
                     box.addClass("wrong-square-guess");
                 } else {
                     box.addClass("incorrect-guess");
                 }
+                guesses.push(guess);
+                console.log(guesses);
+                console.log(guesses.includes(guess));
             }
             gameRow++;
             gameCol = 1;
