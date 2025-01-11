@@ -18,6 +18,9 @@
         }
 
         $("#answer").text(answer)
+
+        gameRow = 1
+        gameCol = 1
     }
 
     chosenEmoji = animalEmoji // temporary for testing, will come from modal selection in future
@@ -44,13 +47,15 @@
                 guess = $(`#${gameRow}-${i}`);
                 answer = $("#answer").text()
                 if (guess === answer[i]) {
-                    guess.classList.add("correct-guess");
+                    guess.addClass("correct-guess");
                 } else if (guess !== answer[i] && answer.includes(guess)) {
-                    guess.classList.add("wrong-square-guess");
+                    guess.addClass("wrong-square-guess");
                 } else {
-                    guess.classList.add("incorrect-guess");
+                    guess.addClass("incorrect-guess");
                 }
             }
+            gameRow++;
+            gameCol = 0;
         }
     }
 
@@ -75,4 +80,4 @@
             $(`#${gameRow}-${gameCol}`).text("");
         }
     });
-    $("#submit").on("click", handleSubmit);    
+    $("#submit").on("click", handleSubmit);
