@@ -24,12 +24,37 @@
     <div class="container text-center mt-3">
         <div class = "row justify-content-center">
             <div class="col justify-content-center">
-                <button type="button" class="btn btn-outline-dark">How to Play</button>
+                <!-- <button type="button" class="btn btn-outline-dark">How to Play</button> -->
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#tutorial">
+                    How to Play
+                </button>
                 <a href = "game.html"><button type="button" class="btn btn-outline-dark">Play Game</button></a>
             </div>
         </div>
     </div>
 
+    <div class="modal" tabindex="-1" id="tutorial">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tutorialLabel">How to Play</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary ms-auto">Play Game</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <!-- Bootstrap JS CDN link - used only for modal -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Custom JS script -->
     <script src="./assets/scripts/script.js"></script>
 </body>

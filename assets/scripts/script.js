@@ -66,7 +66,7 @@
 
                 if (guess === answerEmoji) {
                     box.addClass("correct-guess");
-                } else if (guesses.includes(guess)) {
+                } else if (guesses.includes(guess)) { // Prevents duplicate guesses becoming yellow
                     box.addClass("incorrect-guess");
                 } else if (guess !== answerEmoji && word.includes(guess)) {
                     box.addClass("wrong-square-guess");
