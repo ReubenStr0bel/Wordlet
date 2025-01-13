@@ -5,8 +5,6 @@
     let chosenEmoji;
     let emojiIndex = 0;
     let word = "";
-    let emojiButtonsClicked = []
-    let keyboardUpdateClass = '' // Does this need to be global!? Why won't it work inside the function when outside of the if
 
     // Retrieving the element where the answer is stored
     const answer = document.getElementById("answer");
@@ -66,6 +64,7 @@
                 let box = $(`#${gameRow}-${i}`)
                 let guess = $(`#${gameRow}-${i}`).text();
                 let answerEmoji = answer.children[i-1].innerText;
+                let keyboardUpdateClass
                 
                 if (guess === answerEmoji) {
                     box.addClass("correct-guess");
