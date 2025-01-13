@@ -114,7 +114,7 @@
 
     // Assign event listeners to backspace and submit buttons
     $("#backspace").on("click", function () {
-        if (gameCol > 0) {
+        if (gameCol > 1) {
             gameCol--
             $(`#${gameRow}-${gameCol}`).text("");
         }
