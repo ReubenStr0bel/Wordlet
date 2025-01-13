@@ -91,7 +91,12 @@
         for (let row = 1; row <= $("#emoji-buttons").children().length;  row++) {
             for (let col = 1; col < $(`#emoji-row-${row}`).children().length; col++) {
                 let emoji = $(`#emoji-row-${row} > .box-${col}`);
-                if (guess === emoji.text() && guess !== guesses[col-1]) {
+                if (guess === emoji.text()) {
+                    if (emoji.hasClass("incorrect-guess") && keyboardUpdateClass !== "incorrect-guess") {
+                        emoji.removeClass("incorrect-guess");
+                    } else if (emoji.hasClass("wrong-square-guess") && keyboardUpdateClass === "correct-guess") {
+                        emoji.removeClass("wrong-square-guess");
+                    }
                     emoji.addClass(keyboardUpdateClass);
                 }
             }
