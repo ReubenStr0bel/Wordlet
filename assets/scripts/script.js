@@ -5,6 +5,7 @@
     let chosenEmoji;
     let emojiIndex = 0;
     let word = "";
+    let guesses = [];
 
     // Retrieving the element where the answer is stored
     const answer = document.getElementById("answer");
@@ -49,7 +50,6 @@
                     $(`#${gameRow}-${gameCol}`).text($(this).text());
                     if (gameCol <= 5) { // Incrementing gameCol to 6 will mean that button presses
                         gameCol++       // won't change the final box once the row is full
-                        emojiButtonsClicked.push($(this));
                     }
                 })
             }
@@ -58,13 +58,12 @@
 
     function handleSubmit() {
         // Add in way to test if the game was won or lost
-        if (gameCol === 6) {
-            let guesses = [];
+        if (gameCol === 6) { //Function will only run if 5 emojis have been entered
             for (let i = 1; i <= 5; i++) {
                 let box = $(`#${gameRow}-${i}`)
                 let guess = $(`#${gameRow}-${i}`).text();
                 let answerEmoji = answer.children[i-1].innerText;
-                let keyboardUpdateClass
+                let keyboardUpdateClass;
                 
                 if (guess === answerEmoji) {
                     box.addClass("correct-guess");
@@ -79,6 +78,7 @@
                     box.addClass("incorrect-guess");
                     keyboardUpdateClass = "incorrect-guess";
                 }
+
                 guesses.push(guess);
                 updateKeyboard(guess, keyboardUpdateClass);
             }
@@ -89,9 +89,9 @@
 
     function updateKeyboard(guess, keyboardUpdateClass) {
         for (let row = 1; row <= $("#emoji-buttons").children().length;  row++) {
-            for (let col = 1; col !== $(`#emoji-row-${row}`).children().length; col++) {
-                let emoji = $(`#emoji-row-${row} .box-${col}`);
-                if (guess === emoji.text()) {
+            for (let col = 1; col < $(`#emoji-row-${row}`).children().length; col++) {
+                let emoji = $(`#emoji-row-${row} > .box-${col}`);
+                if (guess === emoji.text() && guess !== guesses[col-1]) {
                     emoji.addClass(keyboardUpdateClass);
                 }
             }

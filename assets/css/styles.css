@@ -37,14 +37,14 @@ body {
 }
 
 /* Classes to show which guesses are correct */
-.correct-guess {
-    background-color: #6ca965;
+.incorrect-guess {
+    background-color: darkgrey;
 }
 
 .wrong-square-guess {
     background-color: #c8b653;
 }
 
-.incorrect-guess {
-    background-color: darkgrey;
+.correct-guess {
+    background-color: #6ca965;
 }
