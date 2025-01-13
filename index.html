@@ -18,9 +18,11 @@
 <body>
     <!-- icon/logo -->
 
+    <!-- Title and description phrase -->
     <h1 class = "display-1 text-center">Wordlet</h1>
     <h2 class = "text-center">Guess the emoji combination before you run out of turns.</h2>
 
+    <!-- Buttons to start game or see rules -->
     <div class="container text-center mt-3">
         <div class = "row justify-content-center">
             <div class="col justify-content-center">
@@ -42,7 +44,32 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Modal body text goes here.</p>
+                <p>In Wordlet, you are trying to guess a random combination of 5 emojis. You have 6 turns in which to guess the combination, and each time receive information about which guesses are correct.</p>
+                <div id = "emoji-examples" class = "mb-3">
+                    <div class = "flex-container">
+                        <span class = "box wrong-square-guess">🦭</span>
+                        <span class = "box incorrect-guess">🐻</span>
+                        <span class = "box wrong-square-guess">🐳</span>
+                        <span class = "box incorrect-guess">🦙</span>
+                        <span class = "box correct-guess">🐯</span>
+                    </div>
+                    <div class = "flex-container">
+                        <span class = "box incorrect-guess">🦘</span>
+                        <span class = "box correct-guess">🐳</span>
+                        <span class = "box incorrect-guess">🦑</span>
+                        <span class = "box wrong-square-guess">🦭</span>
+                        <span class = "box correct-guess">🐯</span>
+                    </div>
+                    <div class = "flex-container">
+                        <span class = "box wrong-square-guess">🐼</span>
+                        <span class = "box correct-guess">🐳</span>
+                        <span class = "box correct-guess">🦭</span>
+                        <span class = "box wrong-square-guess">🐙</span>
+                        <span class = "box correct-guess">🐯</span>
+                    </div>
+                </div>
+                <p>A grey background indicates that this emoji is not part of the correct sequence. A yellow background indicates that the emoji is in the sequence, but not in that square. Finally, a green background indicates that you've placed the correct emoji in the correct square.</p>
+                <p>To start a game, click on the 'Play Game' button to navigate to the game page, and then click the 'New Game' button to select the emoji theme you want to use and start a new game.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
