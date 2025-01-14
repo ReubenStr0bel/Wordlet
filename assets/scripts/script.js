@@ -38,7 +38,6 @@
         gameCol = 1
     }
 
-    chosenEmoji = animalEmoji // temporary for testing, will come from modal selection in future
     function assignEmojiButtons() { 
         // Assigns the emojis to their respective buttons based on which category was selected
         for (let row = 1; row <= $("#emoji-buttons").children().length;  row++) {
@@ -103,10 +102,6 @@
         }
     }
 
-    assignEmojiButtons();
-
-    newGame();
-
     // Create the game grid
     for (let row = 1; row <= 6; row++) {
         for (let col = 1; col <= 5; col++) {
@@ -125,3 +120,27 @@
         }
     });
     $("#submit").on("click", handleSubmit);
+
+    // Assign event listeners to the buttons within the game modal
+    let emojiThemes = [animalEmoji, foodEmoji, faceEmoji];
+    let options = $("#emoji-choices").children();
+    for (let i = 0; i < options.length; i++) {
+        options[i].addEventListener("click", function () {
+            chosenEmoji = emojiThemes[i];
+            for (let index = 0; index < 3; index++) {
+                $(`#emoji-choices .box-${index}`).removeClass("correct-guess");
+            }
+            $(this).addClass("correct-guess");
+        })
+    }
+
+    // Assign event listener to New Game button in modal
+    $("#start-game").on("click", function () {
+        assignEmojiButtons();
+        newGame();
+    });
+    
+
+    // TO DO
+    // Add new game modal content, including button to choose which emoji set to use. Also add feature to track how many wins
+    // Add system to check if game is won or lost.
