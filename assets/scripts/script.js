@@ -6,6 +6,7 @@
     let emojiIndex = 0;
     let word = "";
     let guesses = [];
+    let wins = 0;
 
     // Retrieving the element where the answer is stored
     const answer = document.getElementById("answer");
@@ -64,12 +65,6 @@
                 box = $(`#emoji-row-${row} > .box-${col}`)
                 box.text(chosenEmoji[emojiIndex]);
                 emojiIndex++;
-                box.on("click", function () {
-                    $(`#${gameRow}-${gameCol}`).text($(this).text());
-                    if (gameCol <= 5) { // Incrementing gameCol to 6 will mean that button presses
-                        gameCol++       // won't change the final box once the row is full
-                    }
-                })
             }
         }
     }
@@ -78,6 +73,7 @@
         // Add in way to test if the game was won or lost
         if (gameCol === 6) { //Function will only run if 5 emojis have been entered
             guesses = []
+            let correctGuesses = 0
             for (let i = 1; i <= 5; i++) {
                 let box = $(`#${gameRow}-${i}`)
                 let guess = $(`#${gameRow}-${i}`).text();
@@ -87,6 +83,7 @@
                 if (guess === answerEmoji) {
                     box.addClass("correct-guess");
                     keyboardUpdateClass = "correct-guess";
+                    correctGuesses++
                 } else if (guesses.includes(guess)) { // Prevents duplicate guesses becoming yellow
                     box.addClass("incorrect-guess");
                     keyboardUpdateClass = "incorrect-guess";
@@ -100,9 +97,25 @@
 
                 guesses.push(guess);
                 updateKeyboard(guess, keyboardUpdateClass);
+
+                if (correctGuesses === 5) {
+                    result("win");
+                } else if (gameRow === 6) {
+                    result("loss");
+                }
             }
             gameRow++;
             gameCol = 1;
+        }
+    }
+
+    function result(gameResult) {
+        if (gameResult === "win") {
+            wins++;
+            $("#win-tracker").text(`Wins: ${wins}`);
+        } else if (gameResult === "loss") {
+            wins = 0;
+            $("#win-tracker").text(`Wins: ${wins}`);
         }
     }
 
@@ -152,6 +165,19 @@
             }
             $(this).addClass("correct-guess");
         })
+    }
+
+    // Assign emoji button event handlers
+    for (let row = 1; row <= $("#emoji-buttons").children().length;  row++) {
+        for (let col = 1; col !== $(`#emoji-row-${row}`).children().length; col++) {
+            box = $(`#emoji-row-${row} > .box-${col}`);
+            box.on("click", function () {
+                $(`#${gameRow}-${gameCol}`).text($(this).text());
+                if (gameCol <= 5) { // Incrementing gameCol to 6 will mean that button presses
+                    gameCol++       // won't change the final box once the row is full
+                }
+            });
+        }
     }
 
     // Assign event listener to New Game button in modal
