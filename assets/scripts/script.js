@@ -20,6 +20,21 @@
         gameCol = 1
         emojiIndex = 0
 
+        // Clear the current game grid
+        for (let r = 1; r <= 6; r++) {
+            for (let c = 1; c <= 5; c++) {
+                $(`#${r}-${c}`).text("");
+                $(`#${r}-${c}`).removeClass("incorrect-guess wrong-square-guess correct-guess");
+            }
+        }
+
+        // Clear classes from emoji keyboard
+        for (let row = 1; row <= $("#emoji-buttons").children().length;  row++) {
+            for (let col = 1; col !== $(`#emoji-row-${row}`).children().length; col++) {
+                $(`#emoji-row-${row} > .box-${col}`).removeClass("incorrect-guess wrong-square-guess correct-guess");
+            }
+        }
+
         // generating a random answer from the chosen emoji category
         let emojiArray = [];
         while (emojiArray.length < 5) {
@@ -31,6 +46,8 @@
 
         // Saving the answer in string format
         word = emojiArray.join("");
+
+        $("#answer").children().remove();
         
         // Saving the answer to the #answer div
         for (let i = 0; i < emojiArray.length; i++) {
@@ -60,6 +77,7 @@
     function handleSubmit() {
         // Add in way to test if the game was won or lost
         if (gameCol === 6) { //Function will only run if 5 emojis have been entered
+            guesses = []
             for (let i = 1; i <= 5; i++) {
                 let box = $(`#${gameRow}-${i}`)
                 let guess = $(`#${gameRow}-${i}`).text();
@@ -129,8 +147,8 @@
     for (let i = 0; i < options.length; i++) {
         options[i].addEventListener("click", function () {
             chosenEmoji = emojiThemes[i];
-            for (let index = 0; index < 3; index++) {
-                $(`#emoji-choices .box-${index}`).removeClass("correct-guess");
+            for (let index = 0; index <= 2; index++) {
+                $(`#emoji-choices .box-${index+1}`).removeClass("correct-guess");
             }
             $(this).addClass("correct-guess");
         })
