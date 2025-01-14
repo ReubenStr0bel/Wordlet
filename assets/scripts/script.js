@@ -162,5 +162,5 @@
     
 
     // TO DO
-    // Add new game modal content, including button to choose which emoji set to use. Also add feature to track how many wins
-    // Add system to check if game is won or lost.
+    // Add system to check if game is won or lost and check how many wins in a row
+    // Update display method to make it work on phones (to % maybe)
