@@ -15,6 +15,11 @@
     let gameCol = 1;
 
     function newGame() {
+        // Resetting game variables
+        gameRow = 1 // Reset these values to 1 in case the user starts a game after having played
+        gameCol = 1
+        emojiIndex = 0
+
         // generating a random answer from the chosen emoji category
         let emojiArray = [];
         while (emojiArray.length < 5) {
@@ -33,9 +38,6 @@
             newSpan.innerText = emojiArray[i];
             $("#answer").append(newSpan);
         };
-
-        gameRow = 1 // Reset these values to 1 in case the user starts a game after having played
-        gameCol = 1
     }
 
     function assignEmojiButtons() { 
