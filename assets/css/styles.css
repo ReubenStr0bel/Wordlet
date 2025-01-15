@@ -17,7 +17,6 @@ a {
 .flex-container {
     display: flex;
     margin: auto;
-    width: fit-content;
     justify-content: center;
 }
 
@@ -55,6 +54,15 @@ a {
 }
 
 /* Media queries for screen size responsiveness */
+@media screen and (max-width: 300px) {
+    .box {
+        width: 15vw;
+        height: 15vw;
+        margin: 0.9vw;
+        font-size: 8vw;
+    }
+}
+
 @media screen and (min-width: 300px) {
     .box {
         width: 15vw;

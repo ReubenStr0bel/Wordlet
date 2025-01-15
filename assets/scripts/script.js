@@ -7,6 +7,7 @@
     let word = "";
     let guesses = [];
     let wins = 0;
+    let gameRunning = false;
 
     // Retrieving the element where the answer is stored
     const answer = document.getElementById("answer");
@@ -20,6 +21,7 @@
         gameRow = 1 // Reset these values to 1 in case the user starts a game after having played
         gameCol = 1
         emojiIndex = 0
+        gameRunning = true;
 
         // Clear the current game grid
         for (let r = 1; r <= 6; r++) {
@@ -113,9 +115,11 @@
         if (gameResult === "win") {
             wins++;
             $("#win-tracker").text(`Wins: ${wins}`);
+            gameRunning = false;
         } else if (gameResult === "loss") {
             wins = 0;
             $("#win-tracker").text(`Wins: ${wins}`);
+            gameRunning = false;
         }
     }
 
@@ -147,9 +151,11 @@
 
     // Assign event listeners to backspace and submit buttons
     $("#backspace").on("click", function () {
-        if (gameCol > 1) {
-            gameCol--
-            $(`#${gameRow}-${gameCol}`).text("");
+        if (gameRunning) {
+            if (gameCol > 1) {
+                gameCol--
+                $(`#${gameRow}-${gameCol}`).text("");
+            }
         }
     });
     $("#submit").on("click", handleSubmit);
@@ -167,14 +173,16 @@
         })
     }
 
-    // Assign emoji button event handlers
+    // Assign emoji keyboard event handlers
     for (let row = 1; row <= $("#emoji-buttons").children().length;  row++) {
         for (let col = 1; col !== $(`#emoji-row-${row}`).children().length; col++) {
             box = $(`#emoji-row-${row} > .box-${col}`);
             box.on("click", function () {
-                $(`#${gameRow}-${gameCol}`).text($(this).text());
-                if (gameCol <= 5) { // Incrementing gameCol to 6 will mean that button presses
-                    gameCol++       // won't change the final box once the row is full
+                if (gameRunning) {
+                    $(`#${gameRow}-${gameCol}`).text($(this).text());
+                    if (gameCol <= 5) { // Incrementing gameCol to 6 will mean that button presses
+                        gameCol++       // won't change the final box once the row is full
+                    }
                 }
             });
         }
