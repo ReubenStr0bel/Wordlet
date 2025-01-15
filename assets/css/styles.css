@@ -9,6 +9,11 @@ body {
 }
 
 /*  Game Page  */
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .flex-container {
     display: flex;
     margin: auto;
@@ -47,4 +52,59 @@ body {
 
 .correct-guess {
     background-color: #6ca965;
+}
+
+/* Media queries for screen size responsiveness */
+@media screen and (min-width: 300px) {
+    .box {
+        width: 15vw;
+        height: 15vw;
+        margin: 0.9vw;
+        font-size: 8vw;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .box {
+        width: 13vw;
+        height: 13vw;
+        margin: 0.8vw;
+        font-size: 7.5vw;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .box {
+        width: 11vw;
+        height: 11vw;
+        margin: 0.5vw;
+        font-size: 6vw;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .box {
+        width: 9.5vw;
+        height: 9.5vw;
+        margin: 0.5vw;
+        font-size: 6vw;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .box {
+        width: 8vw;
+        height: 8vw;
+        margin: 0.3vw;
+        font-size: 4vw;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .box {
+        width: 7vw;
+        height: 7vw;
+        margin: 0.25vw;
+        font-size: 3vw;
+    }
 }
