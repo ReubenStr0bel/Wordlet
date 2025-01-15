@@ -40,6 +40,10 @@ a {
     background-color: #FFF;
 }
 
+#emoji-buttons .box:hover {
+    filter: brightness(85%);
+}
+
 /* Classes to show which guesses are correct */
 .incorrect-guess {
     background-color: darkgrey;

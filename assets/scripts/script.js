@@ -193,8 +193,3 @@
         assignEmojiButtons();
         newGame();
     });
-    
-
-    // TO DO
-    // Add system to check if game is won or lost and check how many wins in a row
-    // Update display method to make it work on phones (to % maybe)
