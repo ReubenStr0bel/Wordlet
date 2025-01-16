@@ -25,6 +25,9 @@
         emojiIndex = 0
         gameRunning = true;
 
+        // Showing hidden elements
+        $("#emoji-buttons").removeClass("d-none");
+
         // Clear the current game grid
         for (let r = 1; r <= 6; r++) {
             for (let c = 1; c <= 5; c++) {
@@ -34,8 +37,8 @@
         }
 
         // Clear classes from emoji keyboard
-        for (let col = 1; col <= $("#keyboard").children().length;  col++) {
-            $(`.box-${box}`).removeClass("incorrect-guess wrong-square-guess correct-guess");
+        for (let col = 1; col <= $("#keyboard").children().length; col++) {
+            $(`#keyboard .box-${col}`).removeClass("incorrect-guess wrong-square-guess correct-guess");
         }
 
         // generating a random answer from the chosen emoji category
@@ -62,15 +65,14 @@
 
     function assignEmojiButtons() { 
         // Assigns the emojis to their respective buttons based on which category was selected
-        for (let col = 1; col <= $("#keyboard").children().length;  col++) {
-            box = $(`.box-${col}`)
+        for (let col = 1; col <= $("#keyboard").children().length; col++) {
+            box = $(`#keyboard .box-${col}`)
             box.text(chosenEmoji[emojiIndex]);
             emojiIndex++;
         }
     }
 
     function handleSubmit() {
-        // Add in way to test if the game was won or lost
         if (gameCol === 6) { //Function will only run if 5 emojis have been entered
             guesses = []
             let correctGuesses = 0
@@ -100,6 +102,7 @@
 
                 if (correctGuesses === 5) {
                     result("win");
+                    $("#win-tracker").removeClass("d-none");
                 } else if (gameRow === 6) {
                     result("loss");
                 }
@@ -121,9 +124,10 @@
         }
     }
 
+    // Changes the background colour of boxes in the keyboard to show which have been guessed and the result
     function updateKeyboard(guess, keyboardUpdateClass) {
-        for (let col = 1; col <= $("#keyboard").children().length;  col++) {
-            let emoji = $(`.box-${col}`);
+        for (let col = 1; col <= $("#keyboard").children().length; col++) {
+            let emoji = $(`#keyboard .box-${col}`);
             if (guess === emoji.text()) {
                 if (emoji.hasClass("incorrect-guess") && keyboardUpdateClass !== "incorrect-guess") {
                     emoji.removeClass("incorrect-guess");
@@ -170,8 +174,8 @@
     }
 
     // Assign emoji keyboard event handlers
-    for (let col = 1; col <= $("#keyboard").children().length;  col++) {
-        box = $(`.box-${col}`);
+    for (let col = 1; col <= $("#keyboard").children().length; col++) {
+        box = $(`#keyboard .box-${col}`);
         box.on("click", function () {
             if (gameRunning) {
                 $(`#${gameRow}-${gameCol}`).text($(this).text());
