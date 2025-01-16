@@ -124,15 +124,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     function result(gameResult) {
         if (gameResult === "win") {
             wins++;
-            $("#win-tracker").text(`Wins: ${wins}`);
-            gameRunning = false;
             $("#congratulations").removeClass("d-none");
         } else if (gameResult === "loss") {
             wins = 0;
-            $("#win-tracker").text(`Wins: ${wins}`);
-            gameRunning = false;
             $("#correct-response").removeClass("d-none");
         }
+        $("#win-tracker").text(`Wins: ${wins}`);
+        gameRunning = false;
     }
 
     // Changes the background colour of boxes in the keyboard to show which have been guessed and the result
