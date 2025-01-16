@@ -122,17 +122,15 @@
     }
 
     function updateKeyboard(guess, keyboardUpdateClass) {
-        for (let row = 1; row <= $("#emoji-buttons").children().length;  row++) {
-            for (let col = 1; col < $(`#emoji-row-${row}`).children().length; col++) {
-                let emoji = $(`#emoji-row-${row} > .box-${col}`);
-                if (guess === emoji.text()) {
-                    if (emoji.hasClass("incorrect-guess") && keyboardUpdateClass !== "incorrect-guess") {
-                        emoji.removeClass("incorrect-guess");
-                    } else if (emoji.hasClass("wrong-square-guess") && keyboardUpdateClass === "correct-guess") {
-                        emoji.removeClass("wrong-square-guess");
-                    }
-                    emoji.addClass(keyboardUpdateClass);
+        for (let col = 1; col <= $("#keyboard").children().length;  col++) {
+            let emoji = $(`.box-${col}`);
+            if (guess === emoji.text()) {
+                if (emoji.hasClass("incorrect-guess") && keyboardUpdateClass !== "incorrect-guess") {
+                    emoji.removeClass("incorrect-guess");
+                } else if (emoji.hasClass("wrong-square-guess") && keyboardUpdateClass === "correct-guess") {
+                    emoji.removeClass("wrong-square-guess");
                 }
+                emoji.addClass(keyboardUpdateClass);
             }
         }
     }
@@ -158,7 +156,7 @@
     });
     $("#submit").on("click", handleSubmit);
 
-    // Assign event listeners to the buttons within the game modal
+    // Assign event listeners to the buttons within the game options modal
     let emojiThemes = [animalEmoji, foodEmoji, faceEmoji];
     let options = $("#emoji-choices").children();
     for (let i = 0; i < options.length; i++) {
