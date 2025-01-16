@@ -42,6 +42,20 @@ body {
     background-color: #FFF;
 }
 
+.flex-width-max {
+    width: fit-content;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.flex-width-max .box {
+    border: 2px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #emoji-buttons .box:hover {
     filter: brightness(85%);
 }
@@ -60,21 +74,19 @@ body {
 }
 
 /* Media queries for screen size responsiveness */
-@media screen and (max-width: 300px) {
-    .box {
-        width: 15vw;
-        height: 15vw;
-        margin: 0.9vw;
-        font-size: 8vw;
-    }
-}
-
 @media screen and (min-width: 300px) {
     .box {
         width: 15vw;
         height: 15vw;
         margin: 0.9vw;
         font-size: 8vw;
+    }
+
+    .flex-width-max .box {
+        width: 55px;
+        height: 55px;
+        margin: 3px;
+        font-size: 1.8rem;
     }
 }
 
@@ -90,7 +102,13 @@ body {
         margin: 0.8vw;
         font-size: 7.5vw;
     }
-}
+
+    .flex-width-max .box {
+        width: 65px;
+        height: 65px;
+        margin: 4px;
+        font-size: 2.5rem;
+    }
 
 @media screen and (min-width: 768px) {
     .flex-container {

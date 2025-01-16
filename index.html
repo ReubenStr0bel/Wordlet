@@ -38,7 +38,7 @@
 
     <section id = "game-grid" class = "mt-4"></section> <!-- This section will be populated by the JS script -->
 
-    <section id = "emoji-buttons" class = "mt-4 mb-4">
+    <section id = "emoji-buttons" class = "mt-4 mb-4 d-none">
         <div class="d-flex justify-content-around mb-4">
             <div class="box" id="backspace"><i class="fa-solid fa-delete-left"></i></div>
             <div class="box" id="submit"><i class="fa-solid fa-check"></i></div>
@@ -74,23 +74,23 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>In Wordlet, you are trying to guess a random combination of 5 emojis. You have 6 turns in which to guess the combination, and each time receive information about which guesses are correct.</p>
+                <p>In Wordlet, you are trying to guess a random combination of 5 emojis. You have 6 turns in which to guess the combination, and each time receive information about which guesses are correct. Emojis will not be repeated in the sequence.</p>
                 <div id = "emoji-examples" class = "mb-3">
-                    <div class = "flex-container">
+                    <div class = "flex-width-max">
                         <span class = "box wrong-square-guess">🦭</span>
                         <span class = "box incorrect-guess">🐻</span>
                         <span class = "box wrong-square-guess">🐳</span>
                         <span class = "box incorrect-guess">🦙</span>
                         <span class = "box correct-guess">🐯</span>
                     </div>
-                    <div class = "flex-container">
+                    <div class = "flex-width-max">
                         <span class = "box incorrect-guess">🦘</span>
                         <span class = "box correct-guess">🐳</span>
                         <span class = "box incorrect-guess">🦑</span>
                         <span class = "box wrong-square-guess">🦭</span>
                         <span class = "box correct-guess">🐯</span>
                     </div>
-                    <div class = "flex-container">
+                    <div class = "flex-width-max">
                         <span class = "box wrong-square-guess">🐼</span>
                         <span class = "box correct-guess">🐳</span>
                         <span class = "box correct-guess">🦭</span>
@@ -99,8 +99,8 @@
                     </div>
                 </div>
                 <p>A grey background indicates that this emoji is not part of the correct sequence. A yellow background indicates that the emoji is in the sequence, but not in that square. Finally, a green background indicates that you've placed the correct emoji in the correct square.</p>
-                <p>Click on <i class="fa-solid fa-delete-left"></i> to delete an emoji if you want to guess a different one. Then click on <i class="fa-solid fa-turn-down fa-rotate-90"></i> to submit your guess once you have guessed 5 emojis.</p>
-                <p>To start a game, click on the 'Play Game' button to navigate to the game page, and then click the 'New Game' button to select the emoji theme you want to use and start a new game. After each game you can clikc the new game button again to start another game and choose a different emoji set.</p>
+                <p>Click on <i class="fa-solid fa-delete-left"></i> to delete an emoji if you want to guess a different one. Then click on <i class="fa-solid fa-check"></i> to submit your guess once you have guessed 5 emojis.</p>
+                <p>To start a game, click on the 'New Game' button to select the emoji theme you want to use and start a new game. After each game you can click the new game button again to start another game and choose a different emoji set.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -119,7 +119,7 @@
             </div>
             <div class="modal-body">
                 <p>Choose which emoji theme you would like to play with:</p>
-                <div id = "emoji-choices" class = "flex-container">
+                <div id = "emoji-choices" class = "flex-width-max">
                     <span class = "box box-1">🐯</span>
                     <span class = "box box-2">🍎</span>
                     <span class = "box box-3">😀</span>
