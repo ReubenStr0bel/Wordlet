@@ -28,6 +28,10 @@
         // Showing hidden elements
         $("#emoji-buttons").removeClass("d-none");
 
+        // Hiding answer/congratulatory text
+        $("#congratulations").addClass("d-none");
+        $("#correct-response").addClass("d-none");
+
         // Clear the current game grid
         for (let r = 1; r <= 6; r++) {
             for (let c = 1; c <= 5; c++) {
@@ -117,10 +121,12 @@
             wins++;
             $("#win-tracker").text(`Wins: ${wins}`);
             gameRunning = false;
+            $("#congratulations").removeClass("d-none");
         } else if (gameResult === "loss") {
             wins = 0;
             $("#win-tracker").text(`Wins: ${wins}`);
             gameRunning = false;
+            $("#correct-response").removeClass("d-none");
         }
     }
 
@@ -193,17 +199,10 @@
     });
 
     // TO DO
-    // Add function to show correct answer
-    // Add recognition of getting it right
-    // Hide answer in top left
     // Add text to tell people to click new game
-    // 375 smallest screen size (or 320)
     // Add favicon 
-    // change submit icon to a tick
-    // remove back and submit buttons (within the section), buttons in one row, flex-wrap on flex-container, change width on section container + margin 0 auto in media queries 
     // Could prefill game grid with emojis and clear when new game is pressed
     // Add code comments on functions
     // DOMcontentloaded function
-    // dont need ./ on assets
 
     // JEST - test how many spans are created in game grid
