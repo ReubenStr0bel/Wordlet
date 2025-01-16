@@ -34,7 +34,7 @@
         }
 
         // Clear classes from emoji keyboard
-        for (let box = 1; box <= $("#keyboard").children().length;  box++) {
+        for (let col = 1; col <= $("#keyboard").children().length;  col++) {
             $(`.box-${box}`).removeClass("incorrect-guess wrong-square-guess correct-guess");
         }
 
@@ -62,12 +62,10 @@
 
     function assignEmojiButtons() { 
         // Assigns the emojis to their respective buttons based on which category was selected
-        for (let row = 1; row <= $("#emoji-buttons").children().length;  row++) {
-            for (let col = 1; col !== $(`#emoji-row-${row}`).children().length; col++) {
-                box = $(`#emoji-row-${row} > .box-${col}`)
-                box.text(chosenEmoji[emojiIndex]);
-                emojiIndex++;
-            }
+        for (let col = 1; col <= $("#keyboard").children().length;  col++) {
+            box = $(`.box-${col}`)
+            box.text(chosenEmoji[emojiIndex]);
+            emojiIndex++;
         }
     }
 
