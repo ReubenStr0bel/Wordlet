@@ -1,3 +1,5 @@
+/* jshint esversion: 11, jquery: true */    
+    
     // Emojis taken from emojipedia
     const animalEmoji = ['🐯','🐳','🐻','🦙','🦭','🦘','🦑','🐼','🐙','🐨','🦊','🦝','🐓','🦚','🦩','🐬','🐝','🦈']
     const foodEmoji = ['🥑','🍫','🍒','🍉','🥦','🍆','🍊','🍬','🫐','🥕','🍋','🫑','🍌','🍍','🥬','🍎','🍇','🍑']
@@ -193,3 +195,20 @@
         assignEmojiButtons();
         newGame();
     });
+
+    // TO DO
+    // Add function to show correct answer
+    // Add recognition of getting it right
+    // Hide answer in top left
+    // Add text to tell people to click new game
+    // 375 smallest screen size (or 320)
+    // Add favicon 
+    // change submit icon to a tick
+    // remove back and submit buttons (within the section), buttons in one row, flex-wrap on flex-container, change width on section container + margin 0 auto in media queries 
+    // combine pages, hide game boxes until play game is pressed
+    // Could prefill game grid with emojis and clear when new game is pressed
+    // Add code comments on functions
+    // DOMcontentloaded function
+    // dont need ./ on assets
+
+    // JEST - test how many spans are created in game grid
