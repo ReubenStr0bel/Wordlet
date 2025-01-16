@@ -170,18 +170,16 @@
     }
 
     // Assign emoji keyboard event handlers
-    for (let row = 1; row <= $("#emoji-buttons").children().length;  row++) {
-        for (let col = 1; col !== $(`#emoji-row-${row}`).children().length; col++) {
-            box = $(`#emoji-row-${row} > .box-${col}`);
-            box.on("click", function () {
-                if (gameRunning) {
-                    $(`#${gameRow}-${gameCol}`).text($(this).text());
-                    if (gameCol <= 5) { // Incrementing gameCol to 6 will mean that button presses
-                        gameCol++       // won't change the final box once the row is full
-                    }
+    for (let col = 1; col <= $("#keyboard").children().length;  col++) {
+        box = $(`.box-${col}`);
+        box.on("click", function () {
+            if (gameRunning) {
+                $(`#${gameRow}-${gameCol}`).text($(this).text());
+                if (gameCol <= 5) { // Incrementing gameCol to 6 will mean that button presses
+                    gameCol++       // won't change the final box once the row is full
                 }
-            });
-        }
+            }
+        });
     }
 
     // Assign event listener to New Game button in modal
