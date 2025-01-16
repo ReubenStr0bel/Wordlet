@@ -1,9 +1,12 @@
 /* jshint esversion: 11, jquery: true */    
-    
+document.addEventListener("DOMContentLoaded", (event) => {    
     // Emojis taken from emojipedia
-    const animalEmoji = ['🐯','🐳','🐻','🦙','🦭','🦘','🦑','🐼','🐙','🐨','🦊','🦝','🐓','🦚','🦩','🐬','🐝','🦈']
-    const foodEmoji = ['🥑','🍫','🍒','🍉','🥦','🍆','🍊','🍬','🫐','🥕','🍋','🫑','🍌','🍍','🥬','🍎','🍇','🍑']
-    const faceEmoji = ['😀','🤩','😜','😁','🤑','😂','🥰','🤔','🤤','🥳','😶‍🌫️','😴','🥶','😰','🥹','😡','😑','👿']
+    const animalEmoji = ['🐯','🐳','🐻','🦙','🦭','🦘','🦑','🐼','🐙','🐨','🦊','🦝','🐓','🦚','🦩','🐬','🐝','🦈'];
+    const foodEmoji = ['🥑','🍫','🍒','🍉','🥦','🍆','🍊','🍬','🫐','🥕','🍋','🫑','🍌','🍍','🥬','🍎','🍇','🍑'];
+    const faceEmoji = ['😀','🤩','😜','😁','🤑','😂','🥰','🤔','🤤','🥳','😶‍🌫️','😴','🥶','😰','🥹','😡','😑','👿'];
+    
+    // Setting global variables needed in multiple functions
+    const allEmoji = animalEmoji.concat(foodEmoji,faceEmoji);
     let chosenEmoji;
     let emojiIndex = 0;
     let word = "";
@@ -20,12 +23,12 @@
 
     function newGame() {
         // Resetting game variables
-        gameRow = 1 // Reset these values to 1 in case the user starts a game after having played
-        gameCol = 1
-        emojiIndex = 0
+        gameRow = 1;
+        gameCol = 1;
+        emojiIndex = 0;
         gameRunning = true;
 
-        // Showing hidden elements
+        // Showing keyboard, which is hidden when page first loads
         $("#emoji-buttons").removeClass("d-none");
 
         // Hiding answer/congratulatory text
@@ -40,7 +43,7 @@
             }
         }
 
-        // Clear classes from emoji keyboard
+        // Clear classes from emoji keyboard, resetting background colours
         for (let col = 1; col <= $("#keyboard").children().length; col++) {
             $(`#keyboard .box-${col}`).removeClass("incorrect-guess wrong-square-guess correct-guess");
         }
@@ -48,7 +51,7 @@
         // generating a random answer from the chosen emoji category
         let emojiArray = [];
         while (emojiArray.length < 5) {
-            randomIndex = Math.floor(Math.random() * chosenEmoji.length)
+            let randomIndex = Math.floor(Math.random() * chosenEmoji.length);
             if (!emojiArray.includes(chosenEmoji[randomIndex])) {
                 emojiArray.push(chosenEmoji[randomIndex]);
             }    
@@ -64,24 +67,25 @@
             let newSpan = document.createElement("span");
             newSpan.innerText = emojiArray[i];
             $("#answer").append(newSpan);
-        };
+        }
     }
 
+    // Assigns the emojis to their respective keyboard buttons based on which category was selected
     function assignEmojiButtons() { 
-        // Assigns the emojis to their respective buttons based on which category was selected
         for (let col = 1; col <= $("#keyboard").children().length; col++) {
-            box = $(`#keyboard .box-${col}`)
+            let box = $(`#keyboard .box-${col}`);
             box.text(chosenEmoji[emojiIndex]);
             emojiIndex++;
         }
     }
 
+    // Checking guess against the answer and updating background colours
     function handleSubmit() {
-        if (gameCol === 6) { //Function will only run if 5 emojis have been entered
-            guesses = []
-            let correctGuesses = 0
+        if (gameCol === 6) { //Function will only run if all 5 emojis have been entered
+            guesses = [];
+            let correctGuesses = 0;
             for (let i = 1; i <= 5; i++) {
-                let box = $(`#${gameRow}-${i}`)
+                let box = $(`#${gameRow}-${i}`);
                 let guess = $(`#${gameRow}-${i}`).text();
                 let answerEmoji = answer.children[i-1].innerText;
                 let keyboardUpdateClass;
@@ -89,7 +93,7 @@
                 if (guess === answerEmoji) {
                     box.addClass("correct-guess");
                     keyboardUpdateClass = "correct-guess";
-                    correctGuesses++
+                    correctGuesses++;
                 } else if (guesses.includes(guess)) { // Prevents duplicate guesses becoming yellow
                     box.addClass("incorrect-guess");
                     keyboardUpdateClass = "incorrect-guess";
@@ -116,6 +120,7 @@
         }
     }
 
+    // Reveal answer/text depending on win/loss, set gameRunning to false so no more emojis can be entered
     function result(gameResult) {
         if (gameResult === "win") {
             wins++;
@@ -151,6 +156,9 @@
             let box = document.createElement("span");
             box.id = `${row}-${col}`;
             box.classList.add("box");
+            // Add random emojis to fill the boxes temporarily, for decorative purposes
+            let randomIndex = Math.floor(Math.random() * allEmoji.length);
+            box.innerText = (allEmoji[randomIndex]);
             $("#game-grid").append(box);
         }
     }
@@ -159,7 +167,7 @@
     $("#backspace").on("click", function () {
         if (gameRunning) {
             if (gameCol > 1) {
-                gameCol--
+                gameCol--;
                 $(`#${gameRow}-${gameCol}`).text("");
             }
         }
@@ -176,17 +184,17 @@
                 $(`#emoji-choices .box-${index+1}`).removeClass("correct-guess");
             }
             $(this).addClass("correct-guess");
-        })
+        });
     }
 
     // Assign emoji keyboard event handlers
     for (let col = 1; col <= $("#keyboard").children().length; col++) {
-        box = $(`#keyboard .box-${col}`);
+        let box = $(`#keyboard .box-${col}`);
         box.on("click", function () {
             if (gameRunning) {
                 $(`#${gameRow}-${gameCol}`).text($(this).text());
-                if (gameCol <= 5) { // Incrementing gameCol to 6 will mean that button presses
-                    gameCol++       // won't change the final box once the row is full
+                if (gameCol <= 5) {
+                    gameCol++;
                 }
             }
         });
@@ -197,12 +205,7 @@
         assignEmojiButtons();
         newGame();
     });
+});
 
     // TO DO
-    // Add text to tell people to click new game
-    // Add favicon 
-    // Could prefill game grid with emojis and clear when new game is pressed
-    // Add code comments on functions
-    // DOMcontentloaded function
-
     // JEST - test how many spans are created in game grid
