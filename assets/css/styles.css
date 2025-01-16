@@ -79,6 +79,11 @@ body {
 }
 
 @media screen and (min-width: 576px) {
+    .flex-container {
+        width: 95%;
+        margin: 0 auto;
+    }
+
     .box {
         width: 13vw;
         height: 13vw;
@@ -88,6 +93,11 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+    .flex-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
     .box {
         width: 11vw;
         height: 11vw;
@@ -97,6 +107,11 @@ body {
 }
 
 @media screen and (min-width: 992px) {
+    .flex-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
     .box {
         width: 9.5vw;
         height: 9.5vw;
@@ -106,6 +121,11 @@ body {
 }
 
 @media screen and (min-width: 1200px) {
+    .flex-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
     .box {
         width: 8vw;
         height: 8vw;
@@ -115,6 +135,11 @@ body {
 }
 
 @media screen and (min-width: 1400px) {
+    .flex-container {
+        width: 70%;
+        margin: 0 auto;
+    }
+    
     .box {
         width: 7vw;
         height: 7vw;
