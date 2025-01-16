@@ -1,5 +1,8 @@
-/*  Universal styles  */
+/* importing Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
+    font-family: "montserrat", sans-serif;
     background-color: #EBEBEB;
 }
 
@@ -8,10 +11,8 @@ body {
     min-width: 115px;
 }
 
-/*  Game Page  */
-a {
-    text-decoration: none;
-    color: black;
+#win-tracker {
+    font-size: 2rem;
 }
 
 .flex-container {

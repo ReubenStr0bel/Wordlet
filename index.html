@@ -32,14 +32,16 @@
             New game
         </button>
         <div>
-            <p id = "win-tracker">Wins: 0</p>
+            <p id = "win-tracker" class="d-none">Wins: 0</p>
         </div>
     </section>
 
     <section id = "game-grid" class = "mt-4"></section> <!-- This section will be populated by the JS script -->
 
-    <section id = "emoji-buttons" class = "mt-4 mb-4">
-        <div id = "emoji-row-1" class = "emoji flex-container">
+    <section id = "emoji-buttons" class = "mt-4 mb-4 d-none">
+        <div class="box" id="backspace"><i class="fa-solid fa-delete-left"></i></div>
+        <div class="box" id="submit"><i class="fa-solid fa-turn-down fa-rotate-90"></i></div>
+        <div id = "keyboard" class = "emoji flex-container">
             <div class="box box-1"></div>
             <div class="box box-2"></div>
             <div class="box box-3"></div>
@@ -49,20 +51,16 @@
             <div class="box box-7"></div>
             <div class="box box-8"></div>
             <div class="box box-9"></div>
-            <div class="box box-10" id="backspace"><i class="fa-solid fa-delete-left"></i></div>
-        </div>
-
-        <div id = "emoji-row-2" class = "emoji flex-container">
-            <div class="box box-1"></div>
-            <div class="box box-2"></div>
-            <div class="box box-3"></div>
-            <div class="box box-4"></div>
-            <div class="box box-5"></div>
-            <div class="box box-6"></div>
-            <div class="box box-7"></div>
-            <div class="box box-8"></div>
-            <div class="box box-9"></div>
-            <div class="box box-10" id="submit"><i class="fa-solid fa-turn-down fa-rotate-90"></i></div>
+            <div class="box box-10"></div>
+            <div class="box box-11"></div>
+            <div class="box box-12"></div>
+            <div class="box box-13"></div>
+            <div class="box box-14"></div>
+            <div class="box box-15"></div>
+            <div class="box box-16"></div>
+            <div class="box box-17"></div>
+            <div class="box box-18"></div>
+            <div class="box box-19"></div>
         </div>
     </section>
 

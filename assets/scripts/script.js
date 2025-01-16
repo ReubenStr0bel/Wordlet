@@ -34,10 +34,8 @@
         }
 
         // Clear classes from emoji keyboard
-        for (let row = 1; row <= $("#emoji-buttons").children().length;  row++) {
-            for (let col = 1; col !== $(`#emoji-row-${row}`).children().length; col++) {
-                $(`#emoji-row-${row} > .box-${col}`).removeClass("incorrect-guess wrong-square-guess correct-guess");
-            }
+        for (let box = 1; box <= $("#keyboard").children().length;  box++) {
+            $(`.box-${box}`).removeClass("incorrect-guess wrong-square-guess correct-guess");
         }
 
         // generating a random answer from the chosen emoji category
