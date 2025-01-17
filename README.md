@@ -4,35 +4,11 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/ReubenStr0bel/Wordlet)](https://www.github.com/ReubenStr0bel/Wordlet/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/ReubenStr0bel/Wordlet)](https://www.github.com/ReubenStr0bel/Wordlet)
 
-⚠️ INSTRUCTIONS ⚠️
+This project is a limited version of the popular NYT game 'Wordle', named 'Wordlet' as a reference to the more limited scope of this project compared to the original. In the game, the user tries to guess a randomised sequence of emojis before they run out of turns. It is aimed at anyone who would enjoy playing a game like this, but was developed mostly for my own educational purposes.
 
-In this section, include a few paragraphs providing an overview of your project. Essentially, this part is your "sales pitch". Describe what the project hopes to accomplish, who it is intended to target, and how it will be useful to the target audience.
-
-⚠️ --- END --- ⚠️
-
-🛑 NOTES 🛑
-
-Do not add a **Table of Contents** to your Markdown files. GitHub has these built-in automatically using the headers/hashtags.
-
-Don't add screenshots for the README/TESTING into your `assets` or `static` folders. Create a new folder at the root-level called `documentation`. Consider creating sub-directories within `documentation` to handle things like `wireframes`, `features`, `validation`, `responsiveness`, etc.
-
-**Site Mockups**
-*([amiresponsive](https://ui.dev/amiresponsive?url=https://reubenstr0bel.github.io/Wordlet), [techsini](https://techsini.com/multi-mockup), etc.)*
-Having issues generating site mockups? This is likely due to security policies with your deployed site.
-If you open up your DevTools, there may be an error referencing `X-Frame-Options`.
-
-For Chrome users, head over to http://bit.ly/3iRPn4u and install the extension within your browser. Once installed, navigate back to the mockup site of your choice. You should find your site rendering in the various devices now.
-
-Alternatively, open your project in Gitpod and run the server. Once the site is running, click the `Ports` tab from your Gitpod Terminal. Click the padlock on the appropriate port for your project (`Flask: 5000`, `Django: 8000`). This will make your local page public temporarily. Now, copy the URL of your live-preview page into the responsive tool above. You should find your site rendering in the various devices.
-
-🛑 --- END ---- 🛑
-
-![screenshot](documentation/mockup.png)
+![screenshot](documentation/responsiveness/responsive_layout.png)
 
 source: [Wordlet amiresponsive](https://ui.dev/amiresponsive?url=https://reubenstr0bel.github.io/Wordlet)
-
-> [!IMPORTANT]
-> The examples in these templates are strongly influenced by the Code Institute walkthrough project called "Love Maths".
 
 ## UX
 
@@ -40,47 +16,42 @@ source: [Wordlet amiresponsive](https://ui.dev/amiresponsive?url=https://reubens
 
 #### 1. Strategy Plane
 ##### Purpose
-- Provide users with a simple and accessible way to perform basic mathematical operations.
-- Deliver instant feedback to improve usability and encourage learning.
+- Provide users with a simple and fun game to play.
+- Deliver instant feedback to improve usability.
 - Support accessibility and user-friendly interactions.
 
 ##### Primary User Needs
-- Perform calculations quickly and accurately.
-- Understand errors and correct them easily.
-- Track performance to motivate self-improvement.
+- Quickly provide feedback on which guesses were correct.
+- Track consecutive wins to encourage playing multiple games.
 
 ##### Business Goals
-- Encourage users to engage with the app for educational and recreational purposes.
-- Showcase a well-designed, accessible tool that supports learning.
+- Encourage users to engage with the app for recreational purposes.
 
 #### 2. Scope Plane
 ##### Features
 - A full list of [Features](#features) can be viewed in detail below.
 
 ##### Content Requirements
-- Clear labels and instructions for input and operator buttons.
-- Error messages for invalid inputs.
-- Instant calculation results.
-- Statistics display for tracking correct/incorrect equations.
+- Clear instructions for how to interact with the game.
+- Results of interaction shown visually.
+- Display for tracking consecutive wins.
 
 #### 3. Structure Plane
 ##### Information Architecture
-- **Navigation Menu**:
-  - Simple navbar with accessible links.
 - **Hierarchy**:
-  - Clear and prominent placement of the input fields and operator buttons.
-  - Visible results area and error messages.
+  - Single page with game content and tutorial information
+  - Clear and prominent placement of the buttons used for input.
 
 ##### User Flow
-1. User lands on the home page → reads brief instructions.
-2. Inputs two numbers → selects an operator.
-3. Sees instant results or an error message if input is invalid.
-4. Views correct/incorrect equation feedback.
-5. Starts fresh with the next calculation.
+1. User lands on the home page → can read brief instructions in a modal or start a new game.
+2. If starting a new game → selects an emoji theme in a modal.
+3. Inputs 5 emojis at a time, submits their guess and receives feedback.
+4. Continues guessing until correct or out of turns.
+5. Can choose to start a new game → presented with emoji theme choice again.
 
 #### 4. Skeleton Plane
 ##### Wireframe Suggestions
-- A full list of [Wireframes](#wireframes) can be viewed in detail below.
+- The layout for this page was influenced primarily by the layout for the original Wordle game, with the keyboard below a game grid. For simplicity, Wordlet is made with just one webpage as there is no feature to create an account and a landing page wouldn't serve much purpose.
 
 #### 5. Surface Plane
 ##### Visual Design Elements
@@ -89,53 +60,32 @@ source: [Wordlet amiresponsive](https://ui.dev/amiresponsive?url=https://reubens
 
 ### Colour Scheme
 
-⚠️INSTRUCTIONS ⚠️
+I used the same colour scheme as Wordle to represent incorrect/wrong location/correct guesses. The background is just a simple grey to bring attention to the game itself.
 
-Explain your colors and color scheme. Consider adding a link and screenshot for your color scheme using [coolors](https://coolors.co/generate).
-
-When you add a color to the palette, the URL is dynamically updated, making it easier for you to return back to your color palette later if needed. See example below:
-
-⚠️ --- END --- ⚠️
-
-I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to generate my color palette.
-
-- `#000000` primary text.
-- `#3772FF` primary highlights.
-- `#DF2935` secondary text.
-- `#FDCA40` secondary highlights.
-
-![screenshot](documentation/coolors.png)
+- `#C8B653` Correct guesses.
+- `#6CA965` Wrong location guesses.
+- `Dark grey` incorrect guesses.
+- `#EBEBEB` Background colour.
 
 ### Typography
 
-⚠️ INSTRUCTIONS ⚠️
-
-Explain any fonts and icon libraries used, like **Google Fonts**, **Font Awesome**, etc. Consider adding a link to each font used, the Font Awesome site (if used), or similar icon library.
-
-⚠️ --- END --- ⚠️
-
-- [Montserrat](https://fonts.google.com/specimen/Montserrat) was used for the primary headers and titles.
-- [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
-- [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
+- [Montserrat](https://fonts.google.com/specimen/Montserrat) was used with a back-up of sans-serif.
+- [Font Awesome](https://fontawesome.com) icons were used for the backspace and submit buttons.
+- [Emojipedia](https://emojipedia.org/) Emojis used are from Emojipedia.
+- [Favicon.io](https://favicon.io/) The favicon uses an emoji from Favicon.io.
 
 ## User Stories
 
-⚠️ INSTRUCTIONS ⚠️
-
-In this section, list all of your possible user stories for the project. Samples have been provided below using the example walkthrough project for your inspiration. Make sure to adjust to match your own project features!
-
-⚠️ --- END --- ⚠️
-
 | Target | Expectation | Outcome |
 | --- | --- | --- |
-| As a user | I would like to input two numbers and select an operator (`+`, `-`, `*`, `/`) | so that I can calculate a result. |
-| As a user | I would like the application to show me an error message if I enter empty input (`NaN`) | so that I understand what went wrong. |
-| As a user | I would like the calculation to happen instantly after I select an operator | so that I get my result quickly without waiting. |
-| As a user | I would like the application to have clear and large buttons for each operator | so that I can easily select the correct one on any device. |
+| As a user | I would like to click on emojis to add them to the sequence | so that I can guess the combination. |
+| As a user | I would like the application to show me which emojis are correct | so that I can make my next guess closer to the answer. |
+| As a user | I would like visual feedback to be shown instantly after making a guess | so that I get my result quickly without waiting. |
+| As a user | I would like the application to have clear and large buttons | so that I can easily select the correct one on any device. |
 | As a user | I would like the application to have high-contrast colors and accessible fonts | so that I can easily read and interact with it. |
 | As a user | I would like clear labels and instructions | so that I understand how to use the app without confusion. |
-| As a user | I would like the app to show me the correct result if my equation was incorrect | so that I understand how the answer was calculated. |
-| As a user |  I would like to see how many equations I get correct or incorrect | so I can push myself to improve my math skills. |
+| As a user | I would like the app to show me the correct result if I run out of guesses | so that I can see how close I was to the correct answer. |
+| As a user |  I would like to see how many sequences I get correct | so I can challenge myself or others to beat my score. |
 | As a user | I would like to see a 404 error page if I get lost | so that it's obvious that I've stumbled upon a page that doesn't exist. |
 
 ## Wireframes
