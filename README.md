@@ -95,13 +95,15 @@ I used the same colour scheme as Wordle to represent incorrect/wrong location/co
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
 | Instructions | The game page loads with a prompt to open the tutorial modal and which button to click to begin the game | ![screenshot](documentation/features/instructions.png) |
-
-
-| Tutorial | The tutorial modal shows how the game works and what the various visual queues refer to | ![screenshot](documentation/features/tutorial.png) |
-| Submit Answer | This button allows user to submit their calculation to see if they've successfully answered the current equation. Users can also use the `[ENTER]` key on their keyboard to submit their answers, too. | ![screenshot](documentation/features/submit-answer.png) |
-| Scores | This section tallies the total number of *correct* and *incorrect* answers that the user has calculated. Green to represent *correct*, and red to represent *incorrect*. | ![screenshot](documentation/features/scores.png) |
-| Alerts | Depending on whether or not the user gets the calculation correct or incorrect, alerts are used to provide simple feedback to the user. This showcases if they got it correct, or if they've gotten it incorrect, therefore also showing the correct answer. | ![screenshot](documentation/features/alerts.png) |
-| 404 | The 404 error page will indicate when a user has somehow navigated to a page that doesn't exist. This replaces the default GitHub Pages 404 page, and ties-in with the look and feel of the *Love Maths* site by using the standard navbar and footer. | ![screenshot](documentation/features/404.png) |
+| Tutorial | The tutorial modal shows how the game works and what the various colours mean | ![screenshot](documentation/features/tutorial.png) |
+| Choose theme | Clicking the new game button opens a modal where the user can choose which category of emoji they want to play the game with. The selected emoji is coloured in green to confirm the choice | ![screenshot](documentation/features/game_options.png) |
+| Emoji keyboard | The keyboard is filled with emojis from the chosen theme. There is also a backspace and submit button separated from the main keyboard. | ![screenshot](documentation/features/emoji_keyboard.png) |
+| Guess a sequence and receive feedback | When clicked on the keyboard, emojis are entered into a row on the game grid. When the guess is submitted the background colour of each emoji changes to show whether each is correct or not | ![screenshot](documentation/features/game_grid.png) |
+| Show previous guesses | The keyboard itself also updates with colured backgrounds to show which emojis have been guessed already and whether they were correct. This improves the user experience and makes it quicker to play the game and decide which guess to make | ![screenshot](documentation/features/updated_keyboard.png) |
+| Display congratulatory message | If the correct sequence is guessed, a congratulatory message is displayed | ![screenshot](documentation/features/game_won.png) |
+| Display correct sequence | If the correct sequence is not guessed in time, the correct sequence is shown | ![screenshot](documentation/features/game_lost.png) |
+| Display win counter | The number of wins is shown at the top of the screen. Losing a game resets the counter | ![screenshot](documentation/features/win_counter.png) |
+| 404 | The 404 error page will indicate when a user has somehow navigated to a page that doesn't exist. This replaces the default GitHub Pages 404 page. This page features a link back to the main page | ![screenshot](documentation/features/404.png) |
 
 ### Future Features
 
