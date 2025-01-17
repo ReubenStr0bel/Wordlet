@@ -60,6 +60,13 @@ body {
     filter: brightness(85%);
 }
 
+#error-404 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Classes to show which guesses are correct */
 .incorrect-guess {
     background-color: darkgrey;
