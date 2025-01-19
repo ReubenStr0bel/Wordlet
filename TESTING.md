@@ -55,37 +55,16 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 ## Lighthouse Audit
 
-⚠️ INSTRUCTIONS ⚠️
-
-Use this space to discuss testing the live/deployed site's Lighthouse Audit reports. Avoid testing the local version (Gitpod/VSCode/etc.), as this can have knock-on effects for performance. If you don't have "Lighthouse" in your Developer Tools, it can be added as an [extension](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk).
-
-Unless your project is a single-page application (SPA), you should test Lighthouse Audit results for all of your pages, for both *mobile* and *desktop*.
-
-**IMPORTANT**: You must provide screenshots of the results, to "prove" that you've actually tested them.
-
-⚠️ --- END --- ⚠️
-
 I've tested my deployed project using the Lighthouse Audit tool to check for any major issues. Some warnings are outside of my control, and mobile results tend to be lower than desktop.
 
 | Page | Mobile | Desktop |
 | --- | --- | --- |
 | Home | ![screenshot](documentation/lighthouse/mobile-home.png) | ![screenshot](documentation/lighthouse/desktop-home.png) |
-| Game | ![screenshot](documentation/lighthouse/mobile-game.png) | ![screenshot](documentation/lighthouse/desktop-game.png) |
 | 404 | ![screenshot](documentation/lighthouse/mobile-404.png) | ![screenshot](documentation/lighthouse/desktop-404.png) |
 
 ## Defensive Programming
 
 ⚠️ INSTRUCTIONS ⚠️
-
-Defensive programming (defensive design) is extremely important! When building projects that accept user inputs or forms, you should always test the level of security for each form field. Examples of this could include (but not limited to):
-
-All Projects:
-
-- Users cannot submit an empty form (add the `required` attribute)
-- Users must enter valid field types (ensure the correct input `type=""` is used)
-- Users cannot brute-force a URL to navigate to a restricted pages
-
-Testing should be replicable (can someone else replicate the same outcome?). Ideally, tests cases should focus on each individual section of every page on the website. Each test case should be specific, objective, and step-wise replicable.
 
 Instead of adding a general overview saying that everything works fine, consider documenting tests on each element of the page (eg. button clicks, input box validation, navigation links, etc.) by testing them in their "happy flow", their "bad/exception flow", mentioning the expected and observed results, and drawing a parallel between them where applicable.
 
@@ -107,14 +86,18 @@ Defensive programming was manually tested with the below user acceptance testing
 
 | Page/Feature | Expectation | Test | Result | Screenshot |
 | --- | --- | --- | --- | --- |
-| Calculator UI | Feature is expected to allow the user to input two numbers and select an operator (`+`, `-`, `*`, `/`). | Entered two numbers and selected each operator to perform calculations. | Calculations for all operators worked as expected. | ![screenshot](documentation/defensive/input-output.png) |
-| | Feature is expected to show an error message if inputs are empty (`NaN`). | Tried submitting calculations with empty input fields. | Error message displayed as expected. | ![screenshot](documentation/defensive/empty-inputs.png) |
-| | Feature is expected to display buttons that are clear, large, and easy to select on all devices. | Verified button sizes and usability across multiple devices (mobile, tablet, desktop). | Buttons were accessible and easy to use on all tested devices. | ![screenshot](documentation/defensive/responsive.png) |
-| | Feature is expected to use high-contrast colors and accessible fonts. | Checked contrast ratios using accessibility tools (e.g., Lighthouse, Wave). | Colors and fonts met accessibility standards. | ![screenshot](documentation/defensive/accessibility.png) |
-| | Feature is expected to have clear labels and instructions for user guidance. | Reviewed labels and instructions for clarity and ease of use. | Labels and instructions were clear and intuitive. | ![screenshot](documentation/defensive/labels-instructions.png) |
-| Instant Calculation | Feature is expected to calculate and display results instantly after selecting an operator. | Selected operators after entering two numbers. | Results were displayed instantly. | ![screenshot](documentation/defensive/calc-speed.png) |
-| Error Handling | Feature is expected to display correct results even if an equation was input incorrectly. | Entered various incorrect equations and verified the results. | Correct results were displayed for all tested cases. | ![screenshot](documentation/defensive/error-handling.png) |
-| Score Tracker | Feature is expected to track the number of correct and incorrect equations. | Performed multiple calculations (correct and incorrect) and checked the score tracker. | Score tracker updated correctly for all tested scenarios. | ![screenshot](documentation/defensive/score-tracker.png) |
+| Tutorial modal | 'How to Play' button displays tutorial modal | Clicked button | Tutorial modal displays | ![screenshot](documentation/defensive/tutorial-modal.png) |
+| New game options modal | 'New Game' button opens modal to select emoji theme | Clicked button | Options modal displays | ![screenshot](documentation/defensive/options-modal.png) |
+| Selecting emoji theme | Clicking an emoji button in the options modal sets the emoji theme, and clicking 'Start game' applies this theme to the emoji keyboard | Clicked animal button and 'Start game' | The animal emoji set was applied to the emoji keyboard | ![screenshot](documentation/defensive/emoji-selected.png) ![screenshot](documentation/defensive/theme-applied.png) |
+| Emoji keyboard | Emojis are added into the game row when clicked, the most recent is deleted when backspace is clicked, and a guess is submitted only when the row is full and the submit button is clicked | Each emoji button was clicked, the backspace button was tested at each space on the game grid, and submit was attemped on every space as well. | Emojis are added in order, deleted by backspace in reverse order, and the submit button doesn't do anything if the row is not full. | ![screenshot](documentation/defensive/.png) |
+| Background colour changes | The background colour of both the emoji keyboard buttons and the game grid tiles changes to indicate whether the guess was correct | Played multiple games in which all emoji buttons were used as a guess | Background colours update in the game grid and on the keyboard as expected | ![screenshot](documentation/defensive/game-1.png) ![screenshot](documentation/defensive/game-2.png) ![screenshot](documentation/defensive/game-3.png) |
+| Keyboard disables | The keyboard buttons don't function when the game is won with turns remaining or the game is over | Correct response was entered in first turn, buttons then clicked to check nothing happens. Then game was lost and same test performed. | Button presses have no effect once game is won or over | ![screenshot](documentation/defensive/early-win.png) ![screenshot](documentation/defensive/game-over.png) |
+| Win/loss message | If the game is won then a congratulatory message is shown, if the game is lost then the correct answer is displayed | A game was won and lost to check the resulting message | A win displayed the correct message, a loss displays the correct answer | ![screenshot](documentation/defensive/win-message.png) ![screenshot](documentation/defensive/loss-message.png) |
+
+
+
+| Feature | Expectation | Test | Result | ![screenshot](documentation/defensive/.png) |
+
 | 404 Error Page | Feature is expected to display a 404 error page for non-existent pages. | Navigated to an invalid URL (e.g., `/test`) to test error handling. | A custom 404 error page was displayed as expected. | ![screenshot](documentation/defensive/404.png) |
 
 ## User Story Testing
