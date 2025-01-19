@@ -64,24 +64,6 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 
 ## Defensive Programming
 
-⚠️ INSTRUCTIONS ⚠️
-
-Instead of adding a general overview saying that everything works fine, consider documenting tests on each element of the page (eg. button clicks, input box validation, navigation links, etc.) by testing them in their "happy flow", their "bad/exception flow", mentioning the expected and observed results, and drawing a parallel between them where applicable.
-
-Consider using the following format for manual test cases:
-
-- Expected Outcome / Test Performed / Result Received / Fixes Implemented
-
-- **Expected**: "Feature is expected to do X when the user does Y."
-- **Testing**: "Tested the feature by doing Y."
-- (either) **Result**: "The feature behaved as expected, and it did Y."
-- (or) **Result**: "The feature did not respond to A, B, or C."
-- **Fix**: "I did Z to the code because something was missing."
-
-Use the table below as a basic start, and expand on it using the logic above.
-
-⚠️ --- END --- ⚠️
-
 Defensive programming was manually tested with the below user acceptance testing:
 
 | Page/Feature | Expectation | Test | Result | Screenshot |
@@ -89,7 +71,7 @@ Defensive programming was manually tested with the below user acceptance testing
 | Tutorial modal | 'How to Play' button displays tutorial modal | Clicked button | Tutorial modal displays | ![screenshot](documentation/defensive/tutorial-modal.png) |
 | New game options modal | 'New Game' button opens modal to select emoji theme | Clicked button | Options modal displays | ![screenshot](documentation/defensive/options-modal.png) |
 | Selecting emoji theme | Clicking an emoji button in the options modal sets the emoji theme, and clicking 'Start game' applies this theme to the emoji keyboard | Clicked animal button and 'Start game' | The animal emoji set was applied to the emoji keyboard | ![screenshot](documentation/defensive/emoji-selected.png) ![screenshot](documentation/defensive/theme-applied.png) |
-| Emoji keyboard | Emojis are added into the game row when clicked, the most recent is deleted when backspace is clicked, and a guess is submitted only when the row is full and the submit button is clicked | Each emoji button was clicked, the backspace button was tested at each space on the game grid, and submit was attemped on every space as well. | Emojis are added in order, deleted by backspace in reverse order, and the submit button doesn't do anything if the row is not full. | ![screenshot](documentation/defensive/.png) |
+| Emoji keyboard | Emojis are added into the game row when clicked, the most recent is deleted when backspace is clicked, and a guess is submitted only when the row is full and the submit button is clicked | Each emoji button was clicked, the backspace button was tested at each space on the game grid, and submit was attemped on every space as well. | Emojis are added in order, deleted by backspace in reverse order, and the submit button doesn't do anything if the row is not full. | ![screenshot](documentation/defensive/emoji-keyboard.png) |
 | Background colour changes | The background colour of both the emoji keyboard buttons and the game grid tiles changes to indicate whether the guess was correct | Played multiple games in which all emoji buttons were used as a guess | Background colours update in the game grid and on the keyboard as expected | ![screenshot](documentation/defensive/game-1.png) ![screenshot](documentation/defensive/game-2.png) ![screenshot](documentation/defensive/game-3.png) |
 | Keyboard disables | The keyboard buttons don't function when the game is won with turns remaining or the game is over | Correct response was entered in first turn, buttons then clicked to check nothing happens. Then game was lost and same test performed. | Button presses have no effect once game is won or over | ![screenshot](documentation/defensive/early-win.png) ![screenshot](documentation/defensive/game-over.png) |
 | Win/loss message | If the game is won then a congratulatory message is shown, if the game is lost then the correct answer is displayed | A game was won and lost to check the resulting message | A win displayed the correct message, a loss displays the correct answer | ![screenshot](documentation/defensive/win-message.png) ![screenshot](documentation/defensive/loss-message.png) |
