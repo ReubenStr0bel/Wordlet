@@ -123,11 +123,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Reveal answer/text depending on win/loss, set gameRunning to false so no more emojis can be entered
     function result(gameResult) {
         if (gameResult === "win") {
-            console.log(gameResult)
+            console.log(gameResult);
             wins++;
             $("#congratulations").removeClass("d-none");
         } else if (gameResult === "loss") {
-            console.log(gameResult)
+            console.log(gameResult);
             wins = 0;
             $("#correct-response").removeClass("d-none");
         }
