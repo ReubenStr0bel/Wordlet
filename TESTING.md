@@ -93,11 +93,8 @@ Defensive programming was manually tested with the below user acceptance testing
 | Background colour changes | The background colour of both the emoji keyboard buttons and the game grid tiles changes to indicate whether the guess was correct | Played multiple games in which all emoji buttons were used as a guess | Background colours update in the game grid and on the keyboard as expected | ![screenshot](documentation/defensive/game-1.png) ![screenshot](documentation/defensive/game-2.png) ![screenshot](documentation/defensive/game-3.png) |
 | Keyboard disables | The keyboard buttons don't function when the game is won with turns remaining or the game is over | Correct response was entered in first turn, buttons then clicked to check nothing happens. Then game was lost and same test performed. | Button presses have no effect once game is won or over | ![screenshot](documentation/defensive/early-win.png) ![screenshot](documentation/defensive/game-over.png) |
 | Win/loss message | If the game is won then a congratulatory message is shown, if the game is lost then the correct answer is displayed | A game was won and lost to check the resulting message | A win displayed the correct message, a loss displays the correct answer | ![screenshot](documentation/defensive/win-message.png) ![screenshot](documentation/defensive/loss-message.png) |
-
-
-
-| Feature | Expectation | Test | Result | ![screenshot](documentation/defensive/.png) |
-
+| Clear game grid | Clicking new game after playing resets the game grid and keyboard to the chosen emoji theme | Game played and then a new game started | Game grid is cleared and emoji keyboard is updated if a new emoji theme is chosen | ![screenshot](documentation/defensive/clear-grid.png) |
+| Initial load page design | Page loads with randomised emojis in game grid and the keyboard elements are hidden | Page reloaded | As expected | ![screenshot](documentation/defensive/hidden-components.png) |
 | 404 Error Page | Feature is expected to display a 404 error page for non-existent pages. | Navigated to an invalid URL (e.g., `/test`) to test error handling. | A custom 404 error page was displayed as expected. | ![screenshot](documentation/defensive/404.png) |
 
 ## User Story Testing
