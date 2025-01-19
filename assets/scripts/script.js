@@ -205,11 +205,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         assignEmojiButtons();
         newGame();
     });
+    
+    if (typeof module !== "undefined") module.exports = {
+        updateKeyboard
+    };
 });
-
-if (typeof module !== "undefined") module.exports = {
-    function1, function2, function3, etc
-};
-
-    // TO DO
-    // JEST - test how many spans are created in game grid
