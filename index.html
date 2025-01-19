@@ -21,9 +21,9 @@
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body>
-    <section id = "title" class = "text-center">
-        <h1 class = "display-1">Wordlet</h1>
-        <h2 class = "text-center">Guess the emoji combination before you run out of turns.</h2>
+    <section id="title" class="text-center">
+        <h1 class="display-1">Wordlet</h1>
+        <h2 class="text-center">Guess the emoji combination before you run out of turns.</h2>
         <p>Click 'How to Play' to see a tutorial and 'New Game' to play</p>
         <!-- Tutorial button trigger modal -->
         <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#tutorial">
@@ -34,26 +34,26 @@
             New game
         </button>
         <div>
-            <p id = "win-tracker" class="mt-4 d-none">Wins: 0</p>
+            <p id="win-tracker" class="mt-4 d-none">Wins: 0</p>
         </div>
     </section>
 
-    <div id = "game-grid" class = "mt-4"></div> <!-- This section will be populated by the JS script -->
+    <div id="game-grid" class="mt-4"></div> <!-- This section will be populated by the JS script -->
 
     <div id="result" class="mt-4">
         <p id="congratulations" class="display-6 text-center d-none">Well done! You got it right.</p>
         <div id="correct-response" class="d-none text-center">
             <div><p class="display-6">Almost there! The correct answer was:</p></div>
-            <div id = "answer" class="display-6"></div>
+            <div id="answer" class="display-6"></div>
         </div>
     </div>
 
-    <div id = "emoji-buttons" class = "mt-4 mb-4 d-none">
+    <div id="emoji-buttons" class="mt-4 mb-4 d-none">
         <div class="d-flex justify-content-around mb-4">
             <div class="box" id="backspace"><i class="fa-solid fa-delete-left"></i></div>
             <div class="box" id="submit"><i class="fa-solid fa-check"></i></div>
         </div>
-        <div id = "keyboard" class = "emoji flex-container">
+        <div id="keyboard" class="emoji flex-container">
             <div class="box box-1"></div>
             <div class="box box-2"></div>
             <div class="box box-3"></div>
@@ -85,27 +85,27 @@
             </div>
             <div class="modal-body">
                 <p>In Wordlet, you are trying to guess a random combination of 5 emojis. You have 6 turns in which to guess the combination, and each time receive information about which guesses are correct. Emojis will not be repeated in the sequence.</p>
-                <div id = "emoji-examples" class = "mb-3">
-                    <div class = "flex-width-max">
-                        <span class = "box wrong-square-guess">🦭</span>
-                        <span class = "box incorrect-guess">🐻</span>
-                        <span class = "box wrong-square-guess">🐳</span>
-                        <span class = "box incorrect-guess">🦙</span>
-                        <span class = "box correct-guess">🐯</span>
+                <div id="emoji-examples" class="mb-3">
+                    <div class="flex-width-max">
+                        <span class="box wrong-square-guess">🦭</span>
+                        <span class="box incorrect-guess">🐻</span>
+                        <span class="box wrong-square-guess">🐳</span>
+                        <span class="box incorrect-guess">🦙</span>
+                        <span class="box correct-guess">🐯</span>
                     </div>
-                    <div class = "flex-width-max">
-                        <span class = "box incorrect-guess">🦘</span>
-                        <span class = "box correct-guess">🐳</span>
-                        <span class = "box incorrect-guess">🦑</span>
-                        <span class = "box wrong-square-guess">🦭</span>
-                        <span class = "box correct-guess">🐯</span>
+                    <div class="flex-width-max">
+                        <span class="box incorrect-guess">🦘</span>
+                        <span class="box correct-guess">🐳</span>
+                        <span class="box incorrect-guess">🦑</span>
+                        <span class="box wrong-square-guess">🦭</span>
+                        <span class="box correct-guess">🐯</span>
                     </div>
-                    <div class = "flex-width-max">
-                        <span class = "box wrong-square-guess">🐼</span>
-                        <span class = "box correct-guess">🐳</span>
-                        <span class = "box correct-guess">🦭</span>
-                        <span class = "box wrong-square-guess">🐙</span>
-                        <span class = "box correct-guess">🐯</span>
+                    <div class="flex-width-max">
+                        <span class="box wrong-square-guess">🐼</span>
+                        <span class="box correct-guess">🐳</span>
+                        <span class="box correct-guess">🦭</span>
+                        <span class="box wrong-square-guess">🐙</span>
+                        <span class="box correct-guess">🐯</span>
                     </div>
                 </div>
                 <p>A grey background indicates that this emoji is not part of the correct sequence. A yellow background indicates that the emoji is in the sequence, but not in that square. Finally, a green background indicates that you've placed the correct emoji in the correct square.</p>
@@ -129,10 +129,10 @@
             </div>
             <div class="modal-body">
                 <p>Choose which emoji theme you would like to play with:</p>
-                <div id = "emoji-choices" class = "flex-width-max">
-                    <span class = "box box-1">🐯</span>
-                    <span class = "box box-2">🍎</span>
-                    <span class = "box box-3">😀</span>
+                <div id="emoji-choices" class="flex-width-max">
+                    <span class="box box-1">🐯</span>
+                    <span class="box box-2">🍎</span>
+                    <span class="box box-3">😀</span>
                 </div>
             </div>
             <div class="modal-footer">
