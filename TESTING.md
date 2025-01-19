@@ -43,7 +43,7 @@ I've tested my deployed project to check for responsiveness issues.
 
 | Page | Mobile | Tablet | Desktop | Notes |
 | --- | --- | --- | --- | --- |
-| Home | ![screenshot](documentation/responsiveness/mobile-home.png) | ![screenshot](documentation/responsiveness/tablet-home.png) | ![screenshot](documentation/responsiveness/desktop-home.png) | Works as expected. On smaller screen sizes the keyboard and gameboard just about fit on screen together, but on larger screens you do need to scroll up and down while playing to go from viewing the keyboard to the top row of the game board. |
+| Home | ![screenshot](documentation/responsiveness/mobile-home.png) | ![screenshot](documentation/responsiveness/tablet-home.png) | ![screenshot](documentation/responsiveness/desktop-home.png) | Works as expected. On smaller screen sizes the keyboard and gameboard just about fit on screen together, but on larger screens you need to scroll up and down while playing to go from viewing the keyboard to the top row of the game board. |
 | 404 | ![screenshot](documentation/responsiveness/mobile-404.png) | ![screenshot](documentation/responsiveness/tablet-404.png) | ![screenshot](documentation/responsiveness/desktop-404.png) | Works as expected. |
 
 ## Browser Compatibility
