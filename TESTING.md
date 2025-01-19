@@ -81,25 +81,17 @@ Defensive programming was manually tested with the below user acceptance testing
 
 ## User Story Testing
 
-⚠️ INSTRUCTIONS ⚠️
-
-Testing User Stories is actually quite simple, once you've already got the stories defined on your README.
-
-Most of your project's **Features** should already align with the **User Stories**, so this should be as simple as creating a table with the User Story, matching with the re-used screenshot from the respective Feature.
-
-⚠️ --- END --- ⚠️
-
 | Target | Expectation | Outcome | Screenshot |
 | --- | --- | --- | --- |
-| As a user | I would like to input two numbers and select an operator (`+`, `-`, `*`, `/`) | so that I can calculate a result. | ![screenshot](documentation/features/feature01.png) |
-| As a user | I would like the application to show me an error message if I enter empty input (`NaN`) | so that I understand what went wrong. | ![screenshot](documentation/features/feature02.png) |
-| As a user | I would like the calculation to happen instantly after I select an operator | so that I get my result quickly without waiting. | ![screenshot](documentation/features/feature03.png) |
-| As a user | I would like the application to have clear and large buttons for each operator | so that I can easily select the correct one on any device. | ![screenshot](documentation/features/feature04.png) |
-| As a user | I would like the application to have high-contrast colors and accessible fonts | so that I can easily read and interact with it. | ![screenshot](documentation/features/feature05.png) |
-| As a user | I would like clear labels and instructions | so that I understand how to use the app without confusion. | ![screenshot](documentation/features/feature06.png) |
-| As a user | I would like the app to show me the correct result if my equation was incorrect | so that I understand how the answer was calculated. | ![screenshot](documentation/features/feature07.png) |
-| As a user | I would like to see how many equations I get correct or incorrect | so I can push myself to improve my math skills. | ![screenshot](documentation/features/feature08.png) |
-| As a user | I would like to see a 404 error page if I get lost | so that it's obvious that I've stumbled upon a page that doesn't exist. | ![screenshot](documentation/features/feature09.png) |
+| As a user | I would like to click on emojis to add them to the sequence | so that I can guess the combination. | ![screenshot](documentation/defensive/emoji-keyboard.png) |
+| As a user | I would like the application to show me which emojis are correct | so that I can make my next guess closer to the answer. | ![screenshot](documentation/defensive/game-1.png) |
+| As a user | I would like visual feedback to be shown instantly after making a guess | so that I get my result quickly without waiting. | Refer to screenshot above to see this feature, I can't indicate the speed of the response in an image. |
+| As a user | I would like the application to have clear and large buttons | so that I can easily select the correct one on any device. | ![screenshot](documentation/defensive/game-2.png) |
+| As a user | I would like the application to have high-contrast colors and accessible fonts | so that I can easily read and interact with it. | ![screenshot](documentation/defensive/title.png) |
+| As a user | I would like clear labels and instructions | so that I understand how to use the app without confusion. | ![screenshot](documentation/defensive/title.png) ![screenshot](documentation/defensive/tutorial-modal.png) |
+| As a user | I would like the app to show me the correct result if I run out of guesses | so that I can see how close I was to the correct answer. | ![screenshot](documentation/defensive/loss-message.png) |
+| As a user |  I would like to see how many sequences I get correct | so I can challenge myself or others to beat my score. | ![screenshot](documentation/defensive/early-win.png) |
+| As a user | I would like to see a 404 error page if I get lost | so that it's obvious that I've stumbled upon a page that doesn't exist. | ![screenshot](documentation/defensive/404.png) |
 
 ## Automated Testing
 
@@ -184,53 +176,16 @@ Use this section to list any known issues you ran into while writing your Jest t
 
 ## Bugs
 
-⚠️ INSTRUCTIONS ⚠️
-
-Nobody likes bugs,... except the assessors! Projects seem more suspicious if a student doesn't properly track their bugs. If you're about to submit your project without any bugs listed below, you should ask yourself why you're doing this course in the first place, if you're able to build this entire application without running into any bugs. The best thing you can do for any project is to document your bugs! Not only does it show the true stages of development, but think of it as breadcrumbs for yourself in the future, should you encounter the same/similar bug again, it acts as a gentle reminder on what you did to fix the bug.
-
-If/when you encounter bugs during the development stages of your project, you should document them here, ideally with a screenshot explaining what the issue was, and what you did to fix the bug.
-
-Alternatively, an improved way to manage bugs is to use the built-in **[Issues](https://www.github.com/ReubenStr0bel/Wordlet/issues)** tracker on your GitHub repository. This can be found at the top of your repository, the tab called "Issues".
-
-If using the Issues tracker for bug management, you can simplify the documentation process for testing. Issues allow you to directly paste screenshots into the issue page without having to first save the screenshot locally. You can add labels to your issues (e.g. `bug`), assign yourself as the owner, and add comments/updates as you progress with fixing the issue(s). Once you've solved the issue/bug, you should then "Close" it.
-
-When showcasing your bug tracking for assessment, you can use the following examples below.
-
-⚠️ --- END --- ⚠️
-
 ### Fixed Bugs
-
-[![GitHub issue custom search](https://img.shields.io/github/issues-search?query=repo%3AReubenStr0bel%2FWordlet%20label%3Abug&label=bugs)](https://www.github.com/ReubenStr0bel/Wordlet/issues?q=is%3Aissue+is%3Aclosed+label%3Abug)
-
-I've used [GitHub Issues](https://www.github.com/ReubenStr0bel/Wordlet/issues) to track and manage bugs and issues during the development stages of my project.
-
-All previously closed/fixed bugs can be tracked [here](https://www.github.com/ReubenStr0bel/Wordlet/issues?q=is%3Aissue+is%3Aclosed+label%3Abug).
-
-![screenshot](documentation/bugs/gh-issues-closed.png)
-
-### Unfixed Bugs
-
-⚠️ INSTRUCTIONS ⚠️
-
-You will need to mention any unfixed bugs and why they are not fixed upon submission of your project. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed. Where possible, you must fix all outstanding bugs, unless outside of your control.
-
-If you've identified any unfixed bugs, no matter how small, be sure to list them here! It's better to be honest and list them, because if it's not documented and an assessor finds the issue, they need to know whether or not you're aware of them as well, and why you've not corrected/fixed them.
-
-⚠️ --- END --- ⚠️
-
-[![GitHub issues](https://img.shields.io/github/issues/ReubenStr0bel/Wordlet)](https://www.github.com/ReubenStr0bel/Wordlet/issues)
-
-Any remaining open issues can be tracked [here](https://www.github.com/ReubenStr0bel/Wordlet/issues).
-
-![screenshot](documentation/bugs/gh-issues-open.png)
+| Issue | Fix | Screenshot |
+| --- | --- | --- |
+| The way the answer was being stored and then retrieved by the handleSubmit function. The way I had written it meant the code was trying to compare the guessed emoji as a string to a DOM object. | Added `.innerText` and a method of saving the answer as a string so that I could use `.includes()` to determine if the emoji is included within the answer. | ![screenshot](documentation/bugs/handle-submit.png) |
+| Clicking backspace when the game row was empty set the gameCol variable to 0, so that the next emoji button press didn't update the game grid as the grid is numbered 1-5 | Changed the if statement in the backspace event listener function to check for `gameCol > 1` instead of 0 | ![screenshot](documentation/bugs/backspace.png) |
+| The background colour changes didn't update a yellow guess into a green one when the correct spot was found | The class to make the background yellow was still present, so I added an if statement to check for current classes and remove them if appropriate before adding the new class. | ![screenshot](documentation/bugs/update-keyboard.png) |
+| After playing games consecutively clicking an emoji button would add several copies of the emoji onto the game grid | Event listeners were being added in the newGame function, which is called every time a game is started. This meant each button had multiple event listeners doing the same thing. I removed this code from the newGame function so it only runs once. | ![screenshot](documentation/bugs/emoji-event-handlers.png) |
+| Both the congratulatory text and the correct answer displayed if the game was won in the last turn | The if statement to check whether the game was won or lost and call the result function was contained with the for loop that checks each emoji against the answer. On the final row, the result function was being called with the loss value for every emoji until the final one when the number of correct guesses reached 5. I removed the if statement from the for loop. | ![screenshot](documentation/bugs/result.png) |
 
 ### Known Issues
 
-| Issue | Screenshot |
-| --- | --- |
-| On devices smaller than 375px, the page starts to have horizontal `overflow-x` scrolling. | ![screenshot](documentation/issues/overflow.png) |
-| When validating HTML with a semantic `<section>` element, the validator warns about lacking a header `h2-h6`. This is acceptable. | ![screenshot](documentation/issues/section-header.png) |
-
 > [!IMPORTANT]
 > There are no remaining bugs that I am aware of, though, even after thorough testing, I cannot rule out the possibility.
-
