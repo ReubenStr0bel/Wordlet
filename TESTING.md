@@ -93,18 +93,12 @@ Defensive programming was manually tested with the below user acceptance testing
 
 ## Automated Testing
 
-I have conducted a series of automated tests on my application.
+I attempted to conduct a series of automated tests on my application. There were a few issues encoutered with this, detailed in the section below.
 
 > [!NOTE]
 > I fully acknowledge and understand that, in a real-world scenario, an extensive set of additional tests would be more comprehensive.
 
 ### JavaScript (Jest Testing)
-
-⚠️ INSTRUCTIONS ⚠️
-
-Adjust the code below (file names, function names, etc.) to match your own project files/folders. Use these notes loosely when documenting your own Jest procedures, and remove/adjust where applicable.
-
-⚠️ SAMPLE ⚠️
 
 I have used the [Jest](https://jestjs.io) JavaScript testing framework to test the application functionality. In order to work with Jest, I first had to initialize NPM.
 
@@ -121,7 +115,7 @@ When creating test files, the name of the file needs to be `file-name.test.js` i
 
 - `npm install -D jest-environment-jsdom`
 
-Due to a change in Jest's default configuration, you'll need to add the following code to the top of the `.test.js` file:
+Due to a change in Jest's default configuration,  the following code needs to be added to the top of the `.test.js` file:
 
 ```js
 /**
@@ -140,9 +134,7 @@ beforeAll(() => {
 });
 ```
 
-Remember to adjust the `fs.readFileSync()` to the specific file you'd like you test. The example above is testing the `index.html` file.
-
-Finally, at the bottom of the script file where your primary scripts are written, include the following at the very bottom of the file. Make sure to include the name of all of your functions that are being tested in the `.test.js` file.
+Finally, at the bottom of the script file where the primary scripts are written, include the following. The names of all of the functions that are being tested in the `.test.js` file should be included here.
 
 ```js
 if (typeof module !== "undefined") module.exports = {
@@ -158,19 +150,13 @@ Now that these steps have been undertaken, further tests can be written, and be 
 
 - `npm test --coverage`
 
-Below are the results from the tests that I've written for this application:
-
-| Test Suites | Tests | Screenshot |
-| --- | --- | --- |
-| 1 passed | 16 passed | ![screenshot](documentation/automation/jest-coverage.png) |
-
 #### Jest Test Issues
 
-⚠️ INSTRUCTIONS ⚠️
+I encountered some major issues with Jest while trying to test the application. Primarily, I couldn't get Jest to recognise the dollar symbol used in JQuery so i received reference errors when trying to run the tests. I tried to install JQuery with npm using 'npm install jquery' and including 'const $ = require("jquery")' at the top of my testing file. Unfortunately this didn't solve the issue so I was unable to get any of my Jest tests to run.
 
-Use this section to list any known issues you ran into while writing your Jest tests. Remember to include screenshots (where possible), and a solution to the issue (if known). This can be used for both "fixed" and "unresolved" issues. Remove this sub-section entirely if you somehow didn't run into any issues while working with Jest.
-
-⚠️ --- END --- ⚠️
+| Reference Error |
+| --- |
+| ![screenshot](documentation/jest/reference-error.png) |
 
 ## Bugs
 
