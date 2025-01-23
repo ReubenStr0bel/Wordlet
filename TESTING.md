@@ -26,8 +26,6 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 
 ### JavaScript
 
-⚠️ INSTRUCTIONS ⚠️
-
 I have used the recommended [JShint Validator](https://jshint.com) to validate all of my JS files.
 
 | Directory | File | URL | Screenshot | Notes |
